@@ -1,0 +1,35 @@
+.container-shops {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.shops {
+  box-shadow: 0 12px 30px 0 hsl(0deg 0% 83% / 50%);
+  height: 100%;
+  width: 100%;
+
+  @media (min-width: 768px) {
+    width: 50%;
+  }
+  @media (min-width: 1440px) {
+    width: 30%;
+  }
+  border: none;
+  border-radius: 24px;
+  background-color: #fff;
+}
+
+.shops-image {
+  height: 200px;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 24px 24px 0 0;
+  background-position: 50%;
+  background-size: cover;
+}
+
+.shops-details {
+  padding: 1.5rem;
+}
