@@ -1,0 +1,12 @@
+.contactShop--container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.contactShop--elements {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  text-align: center;
+}
