@@ -1,11 +1,13 @@
 import { useNavigate } from "react-router-dom";
 
-function Error404() {
+function Error({ error, error404 }) {
+  console.log(error, "error");
+  console.log("error404", error404);
   const navigate = useNavigate();
   return (
     <div>
-      <p>Error 404</p>
-      <p>PAGE NOT FOUND</p>
+      <p>{error}</p>
+      <p>{error404}</p>
       <p
         onClick={() => {
           navigate("/");
@@ -16,4 +18,4 @@ function Error404() {
     </div>
   );
 }
-export default Error404;
+export default Error;

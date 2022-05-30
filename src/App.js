@@ -1,13 +1,19 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Error404 from "./components/Error404/error404";
+import Error from "./components/Error/Error";
 
 function App() {
+  const error = "Page not found";
+  const error404 = "Error 404";
+
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="*" element={<Error404 />} />
+          <Route
+            path="*"
+            element={<Error error={error} error404={error404} />}
+          />
         </Routes>
       </BrowserRouter>
     </div>
