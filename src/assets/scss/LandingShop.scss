@@ -1,0 +1,49 @@
+//Landing Image
+.landingShop--container {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+.landingShop--img {
+  width: 100%;
+  height: 60rem;
+}
+
+.landingShop--shop--name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+  color: white;
+}
+
+//Address
+.landingShop--address--elements {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-content: center;
+  font-size: 1.2rem;
+  padding: 20px;
+}
+
+.landingShop--address--text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2rem;
+
+  .gray {
+    color: gray;
+    font-size: 1rem;
+  }
+}
+
+//Map
+.landingShop--map {
+  width: 100%;
+  border: 0;
+  height: 450px;
+}

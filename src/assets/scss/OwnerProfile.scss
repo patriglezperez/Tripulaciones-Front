@@ -1,6 +1,13 @@
+.ownerProfile--component {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 20px;
+}
 .ownerProfile--container {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
 }
 
 .ownerProfile--image {
@@ -8,5 +15,8 @@
 }
 
 .ownerProfile--description {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
   width: 50rem;
 }

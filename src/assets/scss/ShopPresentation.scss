@@ -1,8 +1,14 @@
 .shopPresentation--container {
   display: flex;
   flex-direction: row;
+  width: 100%;
+  justify-content: space-evenly;
+  padding: 20px;
 }
 
 .shopPresentation--description {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
   width: 50rem;
 }

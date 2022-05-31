@@ -1,4 +1,3 @@
-import LocationOnIcon from "@mui/icons-material/LocationOn";
 import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
 import EmailIcon from "@mui/icons-material/Email";
 
@@ -14,10 +13,6 @@ function ContactShop() {
       <p>Ven a visitarnos</p>
 
       <div className="contactShop--elements">
-        <div>
-          <LocationOnIcon fontSize="large" />
-          <p>{individualShop.Address}</p>
-        </div>
         <div>
           <PhoneIphoneIcon fontSize="large" />
           <p>{individualShop.MobilePhone}</p>

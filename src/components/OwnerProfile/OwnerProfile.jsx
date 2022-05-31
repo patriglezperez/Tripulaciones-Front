@@ -8,12 +8,15 @@ function OwnerProfile() {
   };
 
   return (
-    <div className="ownerProfile--container">
-      <p>Me presento</p>
-      <img src={Owner} alt="propietario/a" className="ownerProfile--image" />
-      <div className="ownerProfile--description">
-        <h2>Soy {individualShop.OwnerName}</h2>
-        <p>{individualShop.OwnerDescription}</p>
+    <div className="ownerProfile--component">
+      <p>Acerca de</p>
+
+      <div className="ownerProfile--container">
+        <img src={Owner} alt="propietario/a" className="ownerProfile--image" />
+        <div className="ownerProfile--description">
+          <h2>Soy {individualShop.OwnerName}</h2>
+          <p>{individualShop.OwnerDescription}</p>
+        </div>
       </div>
     </div>
   );
