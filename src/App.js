@@ -1,13 +1,24 @@
-import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
 import RegisterForm from "./components/forms/RegisterForm";
-const App = () => {
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import Error from "./components/Error/Error";
+
+function App() {
+  const error = "Page not found";
+  const error404 = "Error 404";
+
   return (
-    <BrowserRouter>
-      <Routes>
+    <div>
+      <BrowserRouter>
+        <Routes>
         <Route path="/" element={<RegisterForm />} />
-      </Routes>
-    </BrowserRouter>
+          <Route
+            path="*"
+            element={<Error error={error} error404={error404} />}
+          />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
-};
+}
 export default App;
