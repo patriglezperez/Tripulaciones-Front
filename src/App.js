@@ -1,4 +1,4 @@
-import RegisterForm from "./components/Forms/RegisterForm";
+import RegisterForm from "./components/forms/RegisterForm";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Error from "./components/Error/Error";

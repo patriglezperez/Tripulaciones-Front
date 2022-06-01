@@ -6,7 +6,8 @@ import { BrowserTracing, Integrations } from "@sentry/tracing";
 import App from "./App";
 //Sentry error Tracing
 Sentry.init({
-  dsn: "https://99f8fdc4ec7a48459390dd36ab46168d@o1170633.ingest.sentry.io/6461466",
+  dsn: "https://0a8f65281c584a7496ec0bc45ad63a3e@o1170625.ingest.sentry.io/6463151",
+  release: "%REACT_APP_RELEASE_VERSION%",
   integrations: [new BrowserTracing()],
 
   // Set tracesSampleRate to 1.0 to capture 100%
