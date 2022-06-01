@@ -78,14 +78,14 @@ const RegisterForm = () => {
         {<p>{errors.address2?.message}</p>}
         <input {...register("cp")} placeholder="Cp" />
         {<p>{errors.cp?.message}</p>}
-        <select {...register("doctype")} defaultValue="Document type">
+        {/* <select {...register("doctype")} defaultValue="Document type">
           <option disabled>Document type</option>
           <option value="id">ID</option>
           <option value="passport">Passport</option>
         </select>
         {<p>{errors.doctype?.message}</p>}
         <input {...register("docnum")} placeholder="Document Number" />
-        {<p>{errors.docnum?.message}</p>}
+        {<p>{errors.docnum?.message}</p>} */}
         <input type="tel" {...register("tlf")} placeholder="Telephone number" />
         {<p>{errors.tlf?.message}</p>}
         <input
