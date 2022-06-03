@@ -71,6 +71,7 @@ const RegisterForm = () => {
       <input {...register("cp")} placeholder="Cp" />
       {<p>{errors.cp?.message}</p>}
       {/* <select {...register("doctype")} defaultValue="Document type">
+
           <option disabled>Document type</option>
           <option value="id">ID</option>
           <option value="passport">Passport</option>
@@ -83,8 +84,10 @@ const RegisterForm = () => {
       <input type="password" {...register("password")} placeholder="Password" />
       {<p>{errors.password?.message}</p>}
 
-      <button>Submit</button>
-    </form>
+
+        <button>Submit</button>
+      </form>
+    </>
   );
 };
 export default RegisterForm;
