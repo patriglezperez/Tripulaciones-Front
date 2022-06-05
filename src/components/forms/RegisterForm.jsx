@@ -84,10 +84,8 @@ const RegisterForm = () => {
       <input type="password" {...register("password")} placeholder="Password" />
       {<p>{errors.password?.message}</p>}
 
-
-        <button>Submit</button>
-      </form>
-    </>
+      <button>Submit</button>
+    </form>
   );
 };
 export default RegisterForm;
