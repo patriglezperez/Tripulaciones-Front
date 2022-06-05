@@ -10,10 +10,24 @@ function App() {
   const error404 = "Error 404";
   const myEventsList = [
     {
-      title: "event1",
+      title: "Recoger niño",
       start: new Date("June 04, 2022 05:12:00"),
-      end: new Date("June 04, 2022 10:12:00"),
+      end: new Date("June 06, 2022 10:12:00"),
       allDay: false,
+      resource: "any resource the event may be related to",
+    },
+    {
+      title: "Compra semanal",
+      start: new Date("June 12, 2022 18:12:00"),
+      end: new Date("June 12, 2022 21:00:00"),
+      allDay: false,
+      resource: "any resource the event may be related to",
+    },
+    {
+      title: "Hacer el trabajo",
+      start: new Date("June 15, 2022 05:12:00"),
+      end: new Date("June 15, 2022 10:12:00"),
+      allDay: true,
       resource: "any resource the event may be related to",
     },
   ];
