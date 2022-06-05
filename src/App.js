@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Error from "./components/Error/Error";
 import * as Sentry from "@sentry/react";
+import NavBar from "./components/NavBar/Navbar";
 function App() {
   const error = "Page not found";
   const error404 = "Error 404";
@@ -10,6 +11,7 @@ function App() {
   return (
     <div>
       <BrowserRouter>
+        <NavBar />
         <Routes>
           <Route path="/" element={<RegisterForm />} />
           <Route

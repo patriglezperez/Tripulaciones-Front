@@ -3,7 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
     "@hookform/resolvers": "^2.8.10",
+    "@mui/icons-material": "^5.8.2",
     "@sentry/react": "^7.0.0",
     "@sentry/tracing": "^7.0.0",
     "@testing-library/jest-dom": "^5.16.4",
