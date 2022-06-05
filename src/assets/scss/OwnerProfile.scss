@@ -7,11 +7,22 @@
 .ownerProfile--container {
   display: flex;
   flex-direction: row;
+  padding: 15px;
+  flex-wrap: wrap;
   justify-content: space-evenly;
+}
+
+.card {
+  width: 19rem;
+  height: 20rem;
+  border-radius: 50px;
+  background: #e0e0e0;
+  // box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
 
 .ownerProfile--image {
   height: 20rem;
+  padding-bottom: 10px;
 }
 
 .ownerProfile--description {
@@ -19,4 +30,38 @@
   justify-content: space-evenly;
   flex-direction: column;
   width: 50rem;
+  padding-top: 15px;
+}
+
+//Follow
+.landingShop--follow--button {
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 0.7em 1.4em 0.7em 1.1em;
+  color: white;
+  background: #ad5389;
+  background: linear-gradient(
+    0deg,
+    rgba(20, 167, 62, 1) 0%,
+    rgba(102, 247, 113, 1) 100%
+  );
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em #14a73e98;
+  letter-spacing: 0.05em;
+  border-radius: 20em;
+}
+
+.landingShop--follow--button svg {
+  margin-right: 6px;
+}
+
+.landingShop--follow--button:hover {
+  box-shadow: 0 0.5em 1.5em -0.5em #14a73e98;
+}
+
+.landingShop--follow--button:active {
+  box-shadow: 0 0.3em 1em -0.5em #14a73e98;
 }

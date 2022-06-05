@@ -15,7 +15,10 @@ function LandingShop() {
       {/* Landing Image */}
       <div className="landingShop--container">
         <img src={Fruteria} alt="comercio" className="landingShop--img" />
-        <div class="landingShop--shop--name">{individualShop.LocalName}</div>
+
+        <div className="landingShop--shop--name">
+          {individualShop.LocalName}
+        </div>
       </div>
 
       {/* Address */}
@@ -28,13 +31,22 @@ function LandingShop() {
       </div>
       <hr />
 
+      {/* Notifications */}
+      <div className="landingShop--notifications--container">
+        <div className="landingShop--notifications">
+          <p>Activar notificaciones</p>
+          <label className="switch">
+            <input type="checkbox" value="activated" />
+
+            <span className="slider"></span>
+          </label>
+        </div>
+      </div>
+
       {/* About */}
       <OwnerProfile />
-      <hr />
       <ShopPresentation />
-      <hr />
       <ContactShop />
-      <hr />
 
       {/* Map */}
       <iframe
@@ -43,9 +55,9 @@ function LandingShop() {
         // width="600"
         // height="450"
         className="landingShop--map"
-        allowfullscreen=""
+        allowFullScreen=""
         loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
+        referrerPolicy="no-referrer-when-downgrade"
       ></iframe>
       <hr />
     </>

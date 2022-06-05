@@ -12,7 +12,8 @@ function OwnerProfile() {
       <p>Acerca de</p>
 
       <div className="ownerProfile--container">
-        <img src={Owner} alt="propietario/a" className="ownerProfile--image" />
+        <img src={Owner} alt="propietario/a" className="card" />
+
         <div className="ownerProfile--description">
           <h2>Soy {individualShop.OwnerName}</h2>
           <p>{individualShop.OwnerDescription}</p>
