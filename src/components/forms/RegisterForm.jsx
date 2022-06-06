@@ -52,8 +52,7 @@ const RegisterForm = () => {
     postUser(data, jwt);
   } */
 
-  return (
-    <>
+  return (    
       <form
         onSubmit={handleSubmit((data) => {
           //handlePostForm(data)
@@ -79,18 +78,13 @@ const RegisterForm = () => {
         {<p>{errors.doctype?.message}</p>}
         <input {...register("docnum")} placeholder="Document Number" />
         {<p>{errors.docnum?.message}</p>} */}
-        <input type="tel" {...register("tlf")} placeholder="Telephone number" />
-        {<p>{errors.tlf?.message}</p>}
-        <input
-          type="password"
-          {...register("password")}
-          placeholder="Password"
-        />
-        {<p>{errors.password?.message}</p>}
+      <input type="tel" {...register("tlf")} placeholder="Telephone number" />
+      {<p>{errors.tlf?.message}</p>}
+      <input type="password" {...register("password")} placeholder="Password" />
+      {<p>{errors.password?.message}</p>}
 
-        <button>Submit</button>
-      </form>
-    </>
+      <button>Submit</button>
+    </form>
   );
 };
 export default RegisterForm;
