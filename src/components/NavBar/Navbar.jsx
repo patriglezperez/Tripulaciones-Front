@@ -1,30 +1,44 @@
 import { useLocation } from "react-router-dom";
-import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import logo from "../../assets/img/jest_logo.png";
 
 export default function NavBar() {
   const locationUrl = useLocation().pathname;
 
   //pages
   const clientView = "/shops";
-  const ownerView = "/admin";
+  const ownerView = "/client";
 
   let iconRender;
 
   if (locationUrl.includes(clientView)) {
     iconRender = (
-      <ShoppingCartIcon
-        className="shopping-cart"
-        sx={{
-          color: "#ffffff",
-          fontSize: "4rem",
-          alignSelf: "flex-end",
-          cursor: "pointer",
-        }}
-      />
+      <div className="Navbar--component">
+        <div>
+          <img src={logo} alt="logo" />
+          <p>LOCALGREEN</p>
+        </div>
+        <div>
+          <p>MI PERFIL</p>
+          <p>MIS COMPRAS</p>
+          <p>NOSOTROS</p>
+        </div>
+      </div>
     );
   } else if (locationUrl.includes(ownerView)) {
-    iconRender = <ShoppingCartIcon />;
+    iconRender = (
+      <div className="Navbar--component">
+        <div>
+          <img src={logo} alt="logo" />
+          <p>LOCALGREEN</p>
+        </div>
+        <p>AJUSTES PERFIL</p>
+      </div>
+    );
   }
 
-  return <header className="navbar">{iconRender}</header>;
+  return (
+    <>
+      <header>{iconRender}</header>
+    </>
+  );
 }
