@@ -2,7 +2,6 @@ import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-
 const emailRegex =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
@@ -54,23 +53,24 @@ const RegisterForm = () => {
   } */
 
   return (
-    <form
-      onSubmit={handleSubmit((data) => {
-        //handlePostForm(data)
-        reset();
-      })}
-    >
-      <input type="email" {...register("email")} placeholder="Email" />
-      {<p>{errors.email?.message}</p>}
-      <input {...register("name")} placeholder="Name" />
-      {<p>{errors.name?.message}</p>}
-      <input {...register("address1")} placeholder="Address1" />
-      {<p>{errors.address1?.message}</p>}
-      <input {...register("address2")} placeholder="Address2" />
-      {<p>{errors.address2?.message}</p>}
-      <input {...register("cp")} placeholder="Cp" />
-      {<p>{errors.cp?.message}</p>}
-      {/* <select {...register("doctype")} defaultValue="Document type">
+    <>
+      <form
+        onSubmit={handleSubmit((data) => {
+          //handlePostForm(data)
+          reset();
+        })}
+      >
+        <input type="email" {...register("email")} placeholder="Email" />
+        {<p>{errors.email?.message}</p>}
+        <input {...register("name")} placeholder="Name" />
+        {<p>{errors.name?.message}</p>}
+        <input {...register("address1")} placeholder="Address1" />
+        {<p>{errors.address1?.message}</p>}
+        <input {...register("address2")} placeholder="Address2" />
+        {<p>{errors.address2?.message}</p>}
+        <input {...register("cp")} placeholder="Cp" />
+        {<p>{errors.cp?.message}</p>}
+        {/* <select {...register("doctype")} defaultValue="Document type">
 
           <option disabled>Document type</option>
           <option value="id">ID</option>
@@ -79,11 +79,14 @@ const RegisterForm = () => {
         {<p>{errors.doctype?.message}</p>}
         <input {...register("docnum")} placeholder="Document Number" />
         {<p>{errors.docnum?.message}</p>} */}
-      <input type="tel" {...register("tlf")} placeholder="Telephone number" />
-      {<p>{errors.tlf?.message}</p>}
-      <input type="password" {...register("password")} placeholder="Password" />
-      {<p>{errors.password?.message}</p>}
-
+        <input type="tel" {...register("tlf")} placeholder="Telephone number" />
+        {<p>{errors.tlf?.message}</p>}
+        <input
+          type="password"
+          {...register("password")}
+          placeholder="Password"
+        />
+        {<p>{errors.password?.message}</p>}
 
         <button>Submit</button>
       </form>

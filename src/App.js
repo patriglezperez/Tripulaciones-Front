@@ -1,8 +1,9 @@
 import RegisterForm from "./components/forms/RegisterForm";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import Error from "./components/Error/Error";
 import * as Sentry from "@sentry/react";
+import { MakeOrder } from "./components/Orders/MakeOrder";
+
 function App() {
   const error = "Page not found";
   const error404 = "Error 404";
@@ -12,6 +13,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<RegisterForm />} />
+          <Route path="/orders" element={<MakeOrder />} />
           <Route
             path="*"
             element={<Error error={error} error404={error404} />}
