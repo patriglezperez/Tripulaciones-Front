@@ -4,6 +4,8 @@ import { AuthProvider } from "./context/authContext";
 import * as Sentry from "@sentry/react";
 import { BrowserTracing, Integrations } from "@sentry/tracing";
 import App from "./App";
+import "mapbox-gl/dist/mapbox-gl.css";
+import './styles.scss';
 //Sentry error Tracing
 Sentry.init({
   dsn: "https://0a8f65281c584a7496ec0bc45ad63a3e@o1170625.ingest.sentry.io/6463151",
