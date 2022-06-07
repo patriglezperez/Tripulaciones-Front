@@ -1,6 +1,6 @@
 import RegisterForm from "./components/forms/RegisterForm";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
+import RegisterBusinessForm from "./components/forms/RegisterBusinessForm";
 import Error from "./components/Error/Error";
 import * as Sentry from "@sentry/react";
 function App() {
@@ -12,6 +12,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<RegisterForm />} />
+          <Route path="/register-business" element={<RegisterBusinessForm />} />
           <Route
             path="*"
             element={<Error error={error} error404={error404} />}
