@@ -1,14 +1,20 @@
-.container-shops {
+.shop--container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-content: center;
+  align-items: center;
+
+  h2 {
+    font-size: 40px;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+  }
 }
 
-.shops {
+.shop {
   box-shadow: 0 12px 30px 0 hsl(0deg 0% 83% / 50%);
-  height: 100%;
-  width: 100%;
+  width: 90%;
+  margin-bottom: 20px;
 
   @media (min-width: 768px) {
     width: 50%;
@@ -21,7 +27,7 @@
   background-color: #fff;
 }
 
-.shops-image {
+.shop--image {
   height: 200px;
   width: 100%;
   overflow: hidden;
@@ -30,6 +36,47 @@
   background-size: cover;
 }
 
-.shops-details {
+.shop--details {
   padding: 1.5rem;
+  text-align: center;
+  color: #7ba265;
+  padding-bottom: 10px;
+  font-size: 1.2rem;
+}
+
+//valoration
+.shop--valoration {
+  display: flex;
+  flex-direction: row-reverse;
+}
+.shop--valoration button {
+  background-color: initial;
+  border: 0;
+  color: #5f5050;
+  transition: 1s all;
+}
+.shop--valoration button:hover {
+  cursor: pointer;
+  color: #ff9700;
+  transform: rotate(360deg);
+}
+button:nth-child(1):hover ~ button {
+  color: #ff9700;
+  transform: rotate(360deg);
+}
+button:nth-child(2):hover ~ button {
+  color: #ff9700;
+  transform: rotate(360deg);
+}
+button:nth-child(3):hover ~ button {
+  color: #ff9700;
+  transform: rotate(360deg);
+}
+button:nth-child(4):hover ~ button {
+  color: #ff9700;
+  transform: rotate(360deg);
+}
+button:nth-child(5):hover ~ button {
+  color: #ff9700;
+  transform: rotate(360deg);
 }
