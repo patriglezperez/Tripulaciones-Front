@@ -1,7 +1,10 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import Map from "../Map";
 import * as yup from "yup";
+import { useAuth } from "../../context/authContext"; 
+import postBusiness from "../../utils/connections/postBusiness";
 const emailRegex =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 const passwordRegex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])[0-9a-zA-Z]{8,}$/;
@@ -22,7 +25,7 @@ const schema = yup.object({
     .string()
     .required(errorMessages.required)
     .min(2, errorMessages.min(2))
-    .max(100,errorMessages.max(100)),
+    .max(100, errorMessages.max(100)),
   owner_last_name: yup
     .string()
     .required(errorMessages.required)
@@ -33,7 +36,10 @@ const schema = yup.object({
     .required(errorMessages.required)
     .min(2, errorMessages.min(2))
     .max(100),
-  store_phone_number: yup.string().required(errorMessages.required).max(20, errorMessages.max(20)),
+  store_phone_number: yup
+    .string()
+    .required(errorMessages.required)
+    .max(20, errorMessages.max(20)),
   company_inscription: yup
     .string()
     .required(errorMessages.required)
@@ -59,20 +65,44 @@ export default function RegisterBusinessForm() {
     reset,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
-  const [adress, setAdress] = useState(null);
+  const { signup, updatename } = useAuth();
+  const [adress, setAdress] = useState("");
+  const [mapModal, setMapModal] = useState(false);
 
-  const submitData = (data) => {
-    //handlePostForm(data)
-    console.log(data);
-  }
-  const openMap = () => {};
+  const submitData = async(data) => {
+    //User created in Firebase
+    const userCreation = await signup(data.store_email, data.password);
+    //We modify displayName to owner_name + owner_last_name
+    await updatename(userCreation.user, data.owner_name, data.owner_last_name);
+    //We create the business object 
+    const business = {
+      uuid_store: userCreation.user.uid,
+      store_address:adress.place_name_es,
+      latitude_coordinates:adress.geometry.coordinates[1],
+      longitude_coordinates:adress.geometry.coordinates[0],
+      ...data,
+      password:null,
+      confirm_password:null
+    }
+    const response = await postBusiness(business);
+    console.log(business)
+  };
+  const openMap = (e) => {
+    e.preventDefault();
+    setMapModal(!mapModal);
+  };
   return (
     <div className="register-business-container">
       <h2>RegisterBusinessForm</h2>
-      <div className="register-business-map-container"></div>
-      <form
-        onSubmit={handleSubmit(submitData)}
-      >
+      {mapModal ? (
+        <div className="register-business-map-container">
+          <Map setMarker={setAdress} mapType="search" />
+        div.register-business-confirm{adress?.place_name}
+        <button onClick={openMap}>Close map</button>
+        </div>
+      ) : null}
+
+      <form onSubmit={handleSubmit(submitData)}>
         <input {...register("store_name")} placeholder="Nombre del negocio" />
         {<p>{errors.store_name?.message}</p>}
         <textarea
