@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Error from "./components/Error/Error";
 import * as Sentry from "@sentry/react";
 import BusinessManagment from "./components/BusinessManagment";
+import ConfirmedOrder from "./components/ConfirmedOrder";
 function App() {
   const error = "Page not found";
   const error404 = "Error 404";
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<RegisterForm />} />
           <Route path="/business-managment" element={<BusinessManagment />} />
+          <Route path="/confirmed-order" element={<ConfirmedOrder />} />
           <Route
             path="*"
             element={<Error error={error} error404={error404} />}
