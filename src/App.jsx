@@ -1,14 +1,24 @@
-import React from 'react'
-import Login from './components/Login'
+import RegisterForm from "./components/forms/RegisterForm";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-export default function app() {
+import Error from "./components/Error/Error";
+import * as Sentry from "@sentry/react";
+function App() {
+  const error = "Page not found";
+  const error404 = "Error 404";
+
   return (
-    <main className="main-container">
-        <div className="main-container__header"></div>
-        <div className="main-container__content">
-            <Login />
-        </div>
-        <div className="main-container__footer"></div>
-    </main>
-  )
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<RegisterForm />} />
+          <Route
+            path="*"
+            element={<Error error={error} error404={error404} />}
+          />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
 }
+export default Sentry.withProfiler(App);
