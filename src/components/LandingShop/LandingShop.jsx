@@ -1,5 +1,4 @@
 import OwnerProfile from "../OwnerProfile/OwnerProfile";
-import ShopPresentation from "../ShopPresentation/ShopPresentation";
 
 import Fruteria from "../../assets/img/fruteria.jpg";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
@@ -53,7 +52,6 @@ function LandingShop() {
 
       {/* About */}
       <OwnerProfile />
-      <ShopPresentation />
 
       <hr />
       {/* Address */}

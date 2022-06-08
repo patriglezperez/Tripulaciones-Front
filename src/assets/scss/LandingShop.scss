@@ -5,15 +5,14 @@
   text-align: center;
   width: 100%;
 }
-.landingShop--img {
-  width: 100%;
-  height: 40rem;
-
-  @media (max-width: 600px) {
-    height: 30rem;
-  }
+.landingShop--img img {
+  object-fit: cover;
 }
 
+.landingShop--img {
+  width: 100vw;
+  height: 300px;
+}
 .landingShop--shop--name {
   position: absolute;
   top: 50%;

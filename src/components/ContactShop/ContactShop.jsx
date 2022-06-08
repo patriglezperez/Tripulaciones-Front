@@ -1,6 +1,5 @@
-import PhoneIphoneIcon from "@mui/icons-material/PhoneIphone";
-import EmailIcon from "@mui/icons-material/Email";
-
+import Phone from "../../assets/img/phone.png";
+import Email from "../../assets/img/mail.png";
 function ContactShop() {
   let store = {
     store_phone_number: "666666666",
@@ -10,12 +9,12 @@ function ContactShop() {
   return (
     <div className="contactShop--container">
       <div className="contactShop--elements">
-        <div>
-          <PhoneIphoneIcon fontSize="large" />
+        <div className="contactShop--ind">
+          <img src={Phone} alt="phone" />
           <p>{store.store_phone_number}</p>
         </div>
-        <div>
-          <EmailIcon fontSize="large" />
+        <div className="contactShop--ind">
+          <img src={Email} alt="phone" />
           <p>{store.store_email}</p>
         </div>
       </div>

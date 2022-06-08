@@ -1,5 +1,7 @@
 import Owner from "../../assets/img/Woman.jpg";
 import ContactShop from "../ContactShop/ContactShop";
+import ShopPresentation from "../ShopPresentation/ShopPresentation";
+
 function OwnerProfile() {
   let store = {
     image_owner: Owner,
@@ -17,6 +19,7 @@ function OwnerProfile() {
           <h2>Conoce a {store.owner_name}</h2>
           <p>{store.description_store}</p>
           <ContactShop />
+          <ShopPresentation />
         </div>
       </div>
     </div>
