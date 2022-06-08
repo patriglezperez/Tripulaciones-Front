@@ -1,14 +1,34 @@
 import OwnerProfile from "../OwnerProfile/OwnerProfile";
 import ShopPresentation from "../ShopPresentation/ShopPresentation";
-import ContactShop from "../ContactShop/ContactShop";
+
 import Fruteria from "../../assets/img/fruteria.jpg";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
+import Map from "../../components/Map/index";
+import React, { useState, useEffect } from "react";
 
 function LandingShop() {
-  let individualShop = {
-    Address: "C. Dr. Esquerdo, 110, 28007 Madrid, España",
-    LocalName: "Frutas y verduras",
+  let store = {
+    store_address: "C. Dr. Esquerdo, 110, 28007 Madrid, España",
+    store_name: "Frutas y verduras",
+    latitude_coordinates: -3.74,
+    longitude_coordinates: 40.38,
   };
+
+  const [mapModal, setMapModal] = useState(false);
+  const [lng, setLng] = useState(store.latitude_coordinates);
+  const [lat, setLat] = useState(store.longitude_coordinates);
+  const [businessPosition, setBusinessPosition] = useState(null);
+
+  //open and close the map view
+  const openMap = (e) => {
+    e.preventDefault();
+    setMapModal(!mapModal);
+  };
+
+  // we will create the position of the business with the coordinates
+  useEffect(() => {
+    setBusinessPosition({ lat, lng });
+  }, []);
 
   return (
     <>
@@ -16,20 +36,8 @@ function LandingShop() {
       <div className="landingShop--container">
         <img src={Fruteria} alt="comercio" className="landingShop--img" />
 
-        <div className="landingShop--shop--name">
-          {individualShop.LocalName}
-        </div>
+        <div className="landingShop--shop--name">{store.store_name}</div>
       </div>
-
-      {/* Address */}
-      <div className="landingShop--address--elements">
-        <LocationOnOutlinedIcon fontSize="large" />
-        <div className="landingShop--address--text">
-          <p>{individualShop.Address}</p>
-          <p className="gray">Haz clic para abrir el mapa</p>
-        </div>
-      </div>
-      <hr />
 
       {/* Notifications */}
       <div className="landingShop--notifications--container">
@@ -46,20 +54,23 @@ function LandingShop() {
       {/* About */}
       <OwnerProfile />
       <ShopPresentation />
-      <ContactShop />
 
-      {/* Map */}
-      <iframe
-        title="Fruteria"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12403.433083489288!2d-3.9162979005756604!3d38.99573089936011!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd6bc3db33b77f35%3A0xb8c25f293e1d5424!2sFruteria%20Cristian!5e0!3m2!1ses!2ses!4v1654035585311!5m2!1ses!2ses"
-        // width="600"
-        // height="450"
-        className="landingShop--map"
-        allowFullScreen=""
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-      ></iframe>
       <hr />
+      {/* Address */}
+      <div className="landingShop--address--elements">
+        <LocationOnOutlinedIcon fontSize="large" />
+        <div className="landingShop--address--text">
+          <p>{store.store_address}</p>
+          {mapModal === false ? (
+            <button onClick={openMap}>Haz click para abrir el mapa</button>
+          ) : (
+            <div className="landingShop--address--map">
+              <button onClick={openMap}>x</button>
+              <Map className="landingShop--address--map" />
+            </div>
+          )}
+        </div>
+      </div>
     </>
   );
 }

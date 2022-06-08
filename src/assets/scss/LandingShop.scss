@@ -136,3 +136,10 @@ input:checked + .slider::after {
   right: 0.3rem;
   transform: rotate(45deg);
 }
+
+//map
+
+.landingShop--address--map {
+  height: 10rem;
+  width: 100%;
+}
