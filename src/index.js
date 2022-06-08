@@ -5,6 +5,7 @@ import * as Sentry from "@sentry/react";
 import { BrowserTracing, Integrations } from "@sentry/tracing";
 import './styles.scss';
 import App from "./App";
+import "mapbox-gl/dist/mapbox-gl.css";
 import './styles.scss';
 //Sentry error Tracing
 Sentry.init({

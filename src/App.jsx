@@ -15,6 +15,7 @@ function App() {
           <Route path="/" element={<RegisterForm />} />
           <Route path="/business-managment" element={<BusinessManagment />} />
           <Route path="/confirmed-order" element={<ConfirmedOrder />} />
+          <Route path="/register-business" element={<RegisterBusinessForm />} />
           <Route
             path="*"
             element={<Error error={error} error404={error404} />}
