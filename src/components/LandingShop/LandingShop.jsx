@@ -9,8 +9,8 @@ function LandingShop() {
   let store = {
     store_address: "C. Dr. Esquerdo, 110, 28007 Madrid, España",
     store_name: "Frutas y verduras",
-    latitude_coordinates: -9,
-    longitude_coordinates: 10.88,
+    latitude_coordinates: 41.40338,
+    longitude_coordinates: 2.17403,
   };
 
   //[{coordinates:[lat,lng]}]

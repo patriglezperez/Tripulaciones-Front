@@ -7,10 +7,10 @@ import { getUrl, getAddress } from "../../utils/mapbox/geocoder";
 mapboxgl.accessToken = process.env.REACT_APP_MAP_TOKEN;
 
 export default function BusinessMap({
-  features,
-  changePlace,
+  //   features,
+  //   changePlace,
   setMarker,
-  mapType: type,
+  //   mapType: type,
   current,
 }) {
   const mapContainer = useRef(null);
@@ -18,39 +18,12 @@ export default function BusinessMap({
   const [lng, setLng] = useState(current.center[0]);
   const [lat, setLat] = useState(current.center[1]);
   const [zoom, setZoom] = useState(13);
-  const [mapType, setMapType] = useState(type);
-  const [userPosition, setUserPosition] = useState(null);
+  const [mapType, setMapType] = useState(current.mapType);
+  const coordinates = [lat, lng];
+  const [userPosition, setUserPosition] = useState(lat, lng);
 
-  //   const dragEnd = async (e) => {
-  //     const data = await getAddress(e.target._lngLat);
-  //   };
-  console.log(features, "features");
   console.log(userPosition, "userposition");
-  console.log(lng, "que le paso lt");
-  //Update map type
-  useEffect(() => {
-    setMapType(current.mapType);
-  }, [type]);
-
-  //Check navigator permissions
-  //   useEffect(() => {
-  //     if (map.current) return;
-  //     if ("geolocation" in navigator) {
-  //       getUserPosition();
-  //     } else {
-  //       setUserPosition({ lat, lng });
-  //     }
-  //   }, [map]);
-
-  //Get user position
-  //   const getUserPosition = async () => {
-  //     await navigator.geolocation.getCurrentPosition((position) => {
-  //       setUserPosition({
-  //         lng: position.coords.longitude,
-  //         lat: position.coords.latitude,
-  //       });
-  //     });
-  //   };
+  console.log(map, "que tiene map");
 
   // initialize map only once
   useEffect(() => {
@@ -75,36 +48,26 @@ export default function BusinessMap({
       })
     );
 
-    // if (changePlace) {
-    //   const moveMap = (i) => {
-    //     map.current.flyTo({
-    //       center: [features[i].coordinates[0], features[i].coordinates[1]],
-    //       zoom: 15,
-    //     });
-    //   };
-    //   changePlace.current = moveMap;
-    // }
     //In case of having to display points on the map
     if (mapType === "features") {
-      if (features?.length > 0) {
+      if (current.center?.length > 0) {
         const bounds = [];
         let indexMarker = 1;
-        features.forEach((feature) => {
-          // Create a React ref
-          const ref = React.createRef();
-          // Create a new DOM node and save it to the React ref
-          ref.current = document.createElement("div");
-          const root = createRoot(ref.current);
-          root.render(<Marker onClick={markerClicked}>{indexMarker}</Marker>);
-          indexMarker++;
 
-          // Create a Mapbox Marker at our new DOM node
-          new mapboxgl.Marker(ref.current)
-            .setLngLat(feature.coordinates)
-            .addTo(map.current);
+        // Create a React ref
+        const ref = React.createRef();
+        // Create a new DOM node and save it to the React ref
+        ref.current = document.createElement("div");
+        const root = createRoot(ref.current);
+        root.render(<Marker onClick={markerClicked}>{indexMarker}</Marker>);
+        indexMarker++;
 
-          bounds.push(feature.coordinates);
-        });
+        // Create a Mapbox Marker at our new DOM node
+        new mapboxgl.Marker(ref.current)
+          .setLngLat(current.center)
+          .addTo(map.current);
+
+        bounds.push(current.center);
 
         var boundsF = bounds.reduce(function (boundsIn, coord) {
           return boundsIn.extend(coord);
@@ -112,25 +75,9 @@ export default function BusinessMap({
         map.current.fitBounds(boundsF, {
           padding: 20,
         });
-      } else {
-        const ref = React.createRef();
-        // Create a new DOM node and save it to the React ref
-        ref.current = document.createElement("div");
-        const root = createRoot(ref.current);
-        root.render(<Marker onClick={markerClicked}></Marker>);
-        new mapboxgl.Marker(ref.current);
-        console
-          .log(ref.current, "current")
-          .setLngLat(features[0].coordinates)
-          .addTo(map.current);
-        console.log(features, "features2");
-        map.current.fitBounds([features[0].coordinates], {
-          padding: 20,
-        });
       }
     }
   });
-
   //Update map state
   useEffect(() => {
     if (!map.current) return; // wait for map to initialize
@@ -148,7 +95,7 @@ export default function BusinessMap({
   return (
     <div ref={mapContainer} className="map-container">
       {userPosition !== null ? (
-        <SearchBar map={map} setMarker={setMarker} />
+        <div map={map} setMarker={setMarker}></div>
       ) : null}
     </div>
   );
