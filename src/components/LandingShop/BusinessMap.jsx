@@ -1,15 +1,13 @@
 import mapboxgl from "mapbox-gl";
 import React, { useState, useRef, useEffect } from "react";
 import { createRoot } from "react-dom/client";
-import SearchBar from "../Map/subComponents/SearchBar";
 import Marker from "../Map/subComponents/Marker";
-import { getUrl, getAddress } from "../../utils/mapbox/geocoder";
 mapboxgl.accessToken = process.env.REACT_APP_MAP_TOKEN;
 
 export default function BusinessMap({
   //   features,
-  //   changePlace,
-  setMarker,
+  //   //   changePlace,
+  //   setmarker,
   //   mapType: type,
   current,
 }) {
@@ -17,13 +15,10 @@ export default function BusinessMap({
   const map = useRef(null);
   const [lng, setLng] = useState(current.center[0]);
   const [lat, setLat] = useState(current.center[1]);
-  const [zoom, setZoom] = useState(13);
+  const [zoom, setZoom] = useState(5);
   const [mapType, setMapType] = useState(current.mapType);
   const coordinates = [lat, lng];
-  const [userPosition, setUserPosition] = useState(lat, lng);
-
-  console.log(userPosition, "userposition");
-  console.log(map, "que tiene map");
+  const [userPosition, setUserPosition] = useState(coordinates);
 
   // initialize map only once
   useEffect(() => {
@@ -31,7 +26,7 @@ export default function BusinessMap({
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v11",
-      center: [lng, lat],
+      center: [lat, lng],
       zoom: zoom,
     });
     console.log(map, "userPosition here");
@@ -82,9 +77,9 @@ export default function BusinessMap({
   useEffect(() => {
     if (!map.current) return; // wait for map to initialize
     map.current.on("move", () => {
-      setLng(map.current.getCenter().lng.toFixed(4));
-      setLat(map.current.getCenter().lat.toFixed(4));
-      setZoom(map.current.getZoom().toFixed(2));
+      setLng(map.current.getCenter().lng.toFixed(5));
+      setLat(map.current.getCenter().lat.toFixed(5));
+      setZoom(map.current.getZoom().toFixed(4));
     });
   });
 
@@ -94,9 +89,7 @@ export default function BusinessMap({
 
   return (
     <div ref={mapContainer} className="map-container">
-      {userPosition !== null ? (
-        <div map={map} setMarker={setMarker}></div>
-      ) : null}
+      {userPosition !== null ? <div map={map}></div> : null}
     </div>
   );
 }

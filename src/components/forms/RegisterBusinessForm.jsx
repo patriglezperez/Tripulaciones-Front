@@ -3,7 +3,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Map from "../Map";
 import * as yup from "yup";
-import { useAuth } from "../../context/authContext"; 
+import { useAuth } from "../../context/authContext";
 import postBusiness from "../../utils/connections/postBusiness";
 const emailRegex =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -69,23 +69,23 @@ export default function RegisterBusinessForm() {
   const [adress, setAdress] = useState("");
   const [mapModal, setMapModal] = useState(false);
 
-  const submitData = async(data) => {
+  const submitData = async (data) => {
     //User created in Firebase
     const userCreation = await signup(data.store_email, data.password);
     //We modify displayName to owner_name + owner_last_name
     await updatename(userCreation.user, data.owner_name, data.owner_last_name);
-    //We create the business object 
+    //We create the business object
     const business = {
       uuid_store: userCreation.user.uid,
-      store_address:adress.place_name_es,
-      latitude_coordinates:adress.geometry.coordinates[1],
-      longitude_coordinates:adress.geometry.coordinates[0],
+      store_address: adress.place_name_es,
+      latitude_coordinates: adress.geometry.coordinates[1],
+      longitude_coordinates: adress.geometry.coordinates[0],
       ...data,
-      password:null,
-      confirm_password:null
-    }
+      password: null,
+      confirm_password: null,
+    };
     const response = await postBusiness(business);
-    console.log(business)
+    console.log(business);
   };
   const openMap = (e) => {
     e.preventDefault();
@@ -97,8 +97,8 @@ export default function RegisterBusinessForm() {
       {mapModal ? (
         <div className="register-business-map-container">
           <Map setMarker={setAdress} mapType="search" />
-        div.register-business-confirm{adress?.place_name}
-        <button onClick={openMap}>Close map</button>
+          div.register-business-confirm{adress?.place_name}
+          <button onClick={openMap}>Close map</button>
         </div>
       ) : null}
 

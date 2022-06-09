@@ -1,11 +1,11 @@
 import OwnerProfile from "../OwnerProfile/OwnerProfile";
-
 import Fruteria from "../../assets/img/fruteria.jpg";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import BusinessMap from "./BusinessMap";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 function LandingShop() {
+  const [adress, setAdress] = useState("");
   let store = {
     store_address: "C. Dr. Esquerdo, 110, 28007 Madrid, España",
     store_name: "Frutas y verduras",
@@ -19,11 +19,6 @@ function LandingShop() {
   const lat = store.longitude_coordinates;
 
   const coordinates = [lat, lng];
-  //open and close the map view
-  const openMap = (e) => {
-    e.preventDefault();
-    setMapModal(!mapModal);
-  };
 
   return (
     <>
@@ -52,21 +47,17 @@ function LandingShop() {
       <hr />
       {/* Address */}
       <div className="landingShop--address--elements">
-        <LocationOnOutlinedIcon fontSize="large" />
         <div className="landingShop--address--text">
+          <LocationOnOutlinedIcon fontSize="large" />
           <p>{store.store_address}</p>
-          {mapModal === false ? (
-            <button onClick={openMap}>Haz click para abrir el mapa</button>
-          ) : (
-            <div className="landingShop--address--map">
-              <button onClick={openMap}>x</button>
-              <BusinessMap
-                className="landingShop--address--map"
-                current={{ mapType: "features", center: coordinates }}
-              />
-            </div>
-          )}
         </div>
+        {mapModal === false ? (
+          <div className="landingShop--address--map">
+            <BusinessMap
+              current={{ mapType: "features", center: coordinates }}
+            />
+          </div>
+        ) : null}
       </div>
     </>
   );
