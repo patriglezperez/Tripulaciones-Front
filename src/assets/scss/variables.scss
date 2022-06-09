@@ -1,0 +1,9 @@
+$primaryColor: #7ba265;
+$secondaryColor: #ff9700;
+$mobile: 650px;
+:export {
+  primaryColor: $primaryColor;
+  secondaryColor: $secondaryColor;
+
+  mobile: $mobile;
+}

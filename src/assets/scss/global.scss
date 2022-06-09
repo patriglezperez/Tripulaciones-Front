@@ -2,5 +2,22 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
+}
+body {
+  margin: 0 auto;
+  background-color: #efefef;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+}
+.container {
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
 }

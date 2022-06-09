@@ -22,7 +22,7 @@ const schema = yup.object({
     .test(
       "equalsDigits",
       "number field must have exactly 5 digits",
-      (number) => String(number).length === 5
+      (number) => String(number).length === 5,
     )
     .required()
     .positive()
@@ -36,7 +36,7 @@ const schema = yup.object({
     .min(8, "password is to short, must be minimun 8 characters")
     .matches(
       passwordRegex,
-      "password needs at list an Uppercase, lowercase and number"
+      "password needs at list an Uppercase, lowercase and number",
     ),
 });
 
@@ -84,10 +84,8 @@ const RegisterForm = () => {
       <input type="password" {...register("password")} placeholder="Password" />
       {<p>{errors.password?.message}</p>}
 
-
-        <button>Submit</button>
-      </form>
-    </>
+      <button>Submit</button>
+    </form>
   );
 };
 export default RegisterForm;
