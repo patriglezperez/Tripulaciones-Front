@@ -3,10 +3,12 @@ import logo from "../../assets/img/iconLogo.svg";
 import NavMovil from "./NavMobile";
 import Nav from "./Nav";
 import mobile from "../../assets/scss/variables.scss";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
   const [navOpen, setNavOpen] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
+  const navigate = useNavigate();
   let regex = /(\d+)/g;
   const widthMobile = mobile.mobile.match(regex)[0];
 
@@ -23,7 +25,7 @@ const NavBar = () => {
       <div className="nav-bar">
         <div className="container nav-bar-container">
           <div className="logo-container ">
-            <img src={logo} />
+            <img onClick={() => navigate("/")} src={logo} />
             <h1>tu barrio</h1>
           </div>
 
