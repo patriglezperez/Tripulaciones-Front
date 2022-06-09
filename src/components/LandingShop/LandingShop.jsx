@@ -2,32 +2,28 @@ import OwnerProfile from "../OwnerProfile/OwnerProfile";
 
 import Fruteria from "../../assets/img/fruteria.jpg";
 import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
-import Map from "../../components/Map/index";
+import BusinessMap from "./BusinessMap";
 import React, { useState, useEffect } from "react";
 
 function LandingShop() {
   let store = {
     store_address: "C. Dr. Esquerdo, 110, 28007 Madrid, España",
     store_name: "Frutas y verduras",
-    latitude_coordingitates: -3.74,
-    longitude_coordinates: 40.38,
+    latitude_coordinates: -9,
+    longitude_coordinates: 10.88,
   };
 
+  //[{coordinates:[lat,lng]}]
   const [mapModal, setMapModal] = useState(false);
-  const [lng, setLng] = useState(store.latitude_coordinates);
-  const [lat, setLat] = useState(store.longitude_coordinates);
-  const [businessPosition, setBusinessPosition] = useState(null);
+  const lng = store.latitude_coordinates;
+  const lat = store.longitude_coordinates;
 
+  const coordinates = [lat, lng];
   //open and close the map view
   const openMap = (e) => {
     e.preventDefault();
     setMapModal(!mapModal);
   };
-
-  // we will create the position of the business with the coordinates
-  useEffect(() => {
-    setBusinessPosition({ lat, lng });
-  }, []);
 
   return (
     <>
@@ -64,7 +60,10 @@ function LandingShop() {
           ) : (
             <div className="landingShop--address--map">
               <button onClick={openMap}>x</button>
-              <Map className="landingShop--address--map" />
+              <BusinessMap
+                className="landingShop--address--map"
+                current={{ mapType: "features", center: coordinates }}
+              />
             </div>
           )}
         </div>

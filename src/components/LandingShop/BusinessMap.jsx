@@ -1,54 +1,56 @@
 import mapboxgl from "mapbox-gl";
 import React, { useState, useRef, useEffect } from "react";
 import { createRoot } from "react-dom/client";
-import SearchBar from "./subComponents/SearchBar";
-import Marker from "./subComponents/Marker";
+import SearchBar from "../Map/subComponents/SearchBar";
+import Marker from "../Map/subComponents/Marker";
 import { getUrl, getAddress } from "../../utils/mapbox/geocoder";
 mapboxgl.accessToken = process.env.REACT_APP_MAP_TOKEN;
 
-export default function Map({
+export default function BusinessMap({
   features,
   changePlace,
   setMarker,
   mapType: type,
+  current,
 }) {
   const mapContainer = useRef(null);
   const map = useRef(null);
-  const [lng, setLng] = useState(-3.74);
-  const [lat, setLat] = useState(40.38);
+  const [lng, setLng] = useState(current.center[0]);
+  const [lat, setLat] = useState(current.center[1]);
   const [zoom, setZoom] = useState(13);
   const [mapType, setMapType] = useState(type);
   const [userPosition, setUserPosition] = useState(null);
 
-  const dragEnd = async (e) => {
-    const data = await getAddress(e.target._lngLat);
-  };
+  //   const dragEnd = async (e) => {
+  //     const data = await getAddress(e.target._lngLat);
+  //   };
   console.log(features, "features");
   console.log(userPosition, "userposition");
+  console.log(lng, "que le paso lt");
   //Update map type
   useEffect(() => {
-    setMapType(type);
+    setMapType(current.mapType);
   }, [type]);
 
   //Check navigator permissions
-  useEffect(() => {
-    if (map.current) return;
-    if ("geolocation" in navigator) {
-      getUserPosition();
-    } else {
-      setUserPosition({ lat, lng });
-    }
-  }, [map]);
+  //   useEffect(() => {
+  //     if (map.current) return;
+  //     if ("geolocation" in navigator) {
+  //       getUserPosition();
+  //     } else {
+  //       setUserPosition({ lat, lng });
+  //     }
+  //   }, [map]);
 
   //Get user position
-  const getUserPosition = async () => {
-    await navigator.geolocation.getCurrentPosition((position) => {
-      setUserPosition({
-        lng: position.coords.longitude,
-        lat: position.coords.latitude,
-      });
-    });
-  };
+  //   const getUserPosition = async () => {
+  //     await navigator.geolocation.getCurrentPosition((position) => {
+  //       setUserPosition({
+  //         lng: position.coords.longitude,
+  //         lat: position.coords.latitude,
+  //       });
+  //     });
+  //   };
 
   // initialize map only once
   useEffect(() => {
@@ -73,15 +75,15 @@ export default function Map({
       })
     );
 
-    if (changePlace) {
-      const moveMap = (i) => {
-        map.current.flyTo({
-          center: [features[i].coordinates[0], features[i].coordinates[1]],
-          zoom: 15,
-        });
-      };
-      changePlace.current = moveMap;
-    }
+    // if (changePlace) {
+    //   const moveMap = (i) => {
+    //     map.current.flyTo({
+    //       center: [features[i].coordinates[0], features[i].coordinates[1]],
+    //       zoom: 15,
+    //     });
+    //   };
+    //   changePlace.current = moveMap;
+    // }
     //In case of having to display points on the map
     if (mapType === "features") {
       if (features?.length > 0) {
@@ -146,7 +148,7 @@ export default function Map({
   return (
     <div ref={mapContainer} className="map-container">
       {userPosition !== null ? (
-        <SearchBar dragEnd={dragEnd} map={map} setMarker={setMarker} />
+        <SearchBar map={map} setMarker={setMarker} />
       ) : null}
     </div>
   );

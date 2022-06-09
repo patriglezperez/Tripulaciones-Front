@@ -5,11 +5,12 @@
   text-align: center;
   width: 100%;
 }
-.landingShop--img img {
-  object-fit: cover;
-}
+// .landingShop--img {
+//   object-fit: cover;
+// }
 
 .landingShop--img {
+  object-fit: cover;
   width: 100vw;
   height: 300px;
 }
