@@ -19,6 +19,8 @@ h1 {
 }
 h2 {
   font-size: 26px;
+  color: $primaryColor;
+  text-transform: uppercase;
 }
 p {
   font-size: 16px;
@@ -66,9 +68,7 @@ p {
     width: 275px;
   }
 }
-// input[type="email"] {
-//   background-color: #ff0000;
-// }
+
 .input {
   border: solid 2px $primaryColor;
   outline: none;

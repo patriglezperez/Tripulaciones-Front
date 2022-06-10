@@ -1,0 +1,110 @@
+$grado: 80deg;
+.resumen-card-container {
+  position: relative;
+  margin-top: 40px;
+  width: 95%;
+  height: 600px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  padding: 10px;
+}
+.circular {
+  height: 100px;
+  width: 100px;
+  position: relative;
+  top: 0;
+  margin: 0 auto;
+  position: relative;
+  transform: scale(1);
+  .inner {
+    position: absolute;
+    z-index: 6;
+    top: 50%;
+    left: 50%;
+    height: 80px;
+    width: 80px;
+    margin: -40px 0 0 -40px;
+    background: #dde6f0;
+    border-radius: 100%;
+  }
+  .number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    font-size: 18px;
+    font-weight: 500;
+    color: #4158d0;
+  }
+  .left .progress {
+    position: absolute;
+    z-index: 1;
+    -webkit-animation: left 4s linear both;
+    animation: left 4s linear both;
+  }
+  @-webkit-keyframes left {
+    100% {
+      @if $grado >= 180deg {
+        transform: rotate(180deg);
+      } @else {
+        transform: rotate($grado);
+      }
+    }
+  }
+  @keyframes left {
+    100% {
+      @if $grado >= 180deg {
+        transform: rotate(180deg);
+      } @else {
+        transform: rotate($grado);
+      }
+    }
+  }
+  .right {
+    transform: rotate(180deg);
+    z-index: 3;
+  }
+  .right .progress {
+    -webkit-animation: right 4s linear both;
+    animation: right 4s linear both;
+    -webkit-animation-delay: 4s;
+    animation-delay: 4s;
+  }
+
+  @-webkit-keyframes right {
+    100% {
+      @if $grado >= 180deg {
+        transform: rotate(calc($grado - 180deg));
+      } @else {
+        transform: rotate(0deg);
+      }
+    }
+  }
+  @keyframes right {
+    100% {
+      @if $grado >= 180deg {
+        transform: rotate(calc($grado - 180deg));
+      } @else {
+        transform: rotate(0deg);
+      }
+    }
+  }
+}
+.bar {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  border-radius: 100%;
+  clip: rect(0px, 100px, 100px, 50px);
+  .progress {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    border-radius: 100%;
+    clip: rect(0px, 50px, 100px, 0px);
+    background: #4158d0;
+  }
+}

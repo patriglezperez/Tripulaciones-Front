@@ -29,7 +29,7 @@ export default function Login() {
   };
 
   return (
-    <div className="login container">
+    <div className="container-form container">
       <h1>Login</h1>
       <form className="form">
         <input
