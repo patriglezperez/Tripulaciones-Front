@@ -1,6 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;500;900&display=swap");
+@import "./assets/scss/variables.scss";
 @import "./assets/scss/global.scss";
+@import "./assets/scss/navBar.scss";
+@import "./assets/scss/navMobile.scss";
+@import "./assets/scss/nav.scss";
 @import "./assets/scss/map.scss";
 @import "./assets/scss/business-form.scss";
 @import "./assets/scss/businessManagment.scss";
 @import "./assets/scss/confirmedOrder.scss";
+@import "./assets/scss/resumenUser.scss";
+@import "./assets/scss/login.scss";

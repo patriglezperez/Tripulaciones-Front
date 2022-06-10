@@ -3,7 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import { createRoot } from "react-dom/client";
 import SearchBar from "./subComponents/SearchBar";
 import Marker from "./subComponents/Marker";
-import {getUrl,getAddress} from '../../utils/mapbox/geocoder'
+import { getUrl, getAddress } from "../../utils/mapbox/geocoder";
 mapboxgl.accessToken = process.env.REACT_APP_MAP_TOKEN;
 
 export default function Map({
@@ -18,14 +18,11 @@ export default function Map({
   const [lat, setLat] = useState(40.38);
   const [zoom, setZoom] = useState(13);
   const [mapType, setMapType] = useState(type);
-  const [userPosition,setUserPosition] = useState(null);
+  const [userPosition, setUserPosition] = useState(null);
 
-  const dragEnd = async (e)=>{
+  const dragEnd = async (e) => {
     const data = await getAddress(e.target._lngLat);
-    
-    
-    
-  }
+  };
 
   //Update map type
   useEffect(() => {
@@ -38,19 +35,19 @@ export default function Map({
     if ("geolocation" in navigator) {
       getUserPosition();
     } else {
-      setUserPosition({lat,lng})
-    }    
-   
+      setUserPosition({ lat, lng });
+    }
   }, [map]);
 
   //Get user position
-  const getUserPosition = async() => {
-    await navigator.geolocation.getCurrentPosition(
-      (position) => { 
-        setUserPosition({lng: position.coords.longitude,lat: position.coords.latitude})
-      }
-  );
-};
+  const getUserPosition = async () => {
+    await navigator.geolocation.getCurrentPosition((position) => {
+      setUserPosition({
+        lng: position.coords.longitude,
+        lat: position.coords.latitude,
+      });
+    });
+  };
 
   // initialize map only once
   useEffect(() => {
@@ -71,7 +68,7 @@ export default function Map({
         trackUserLocation: true,
         // Draw an arrow next to the location dot to indicate which direction the device is heading.
         showUserHeading: true,
-      })
+      }),
     );
 
     if (changePlace) {
@@ -141,8 +138,11 @@ export default function Map({
     console.log(e.target);
   };
 
-  return (<div ref={mapContainer} className="map-container">
-    {userPosition !== null ? <SearchBar dragEnd={dragEnd} map={map} setMarker={setMarker} /> : null}
-    
-  </div>);
+  return (
+    <div ref={mapContainer} className="map-container">
+      {userPosition !== null ? (
+        <SearchBar dragEnd={dragEnd} map={map} setMarker={setMarker} />
+      ) : null}
+    </div>
+  );
 }
