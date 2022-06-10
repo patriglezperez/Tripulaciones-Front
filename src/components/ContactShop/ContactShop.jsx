@@ -13,17 +13,29 @@ function ContactShop() {
     <div className="contactShop">
       <div className="contactShop--container">
         <div>
-          <LocalPhoneRoundedIcon className="contactShop--icons" />
+          <LocalPhoneRoundedIcon
+            className="contactShop--icons"
+            color="primary"
+            fontSize="large"
+          />
           <p>{store.store_phone_number}</p>
         </div>
 
         <div>
-          <HomeRoundedIcon className="contactShop--icons" />
+          <HomeRoundedIcon
+            className="contactShop--icons"
+            color="primary"
+            fontSize="large"
+          />
           <p>{store.store_address}</p>
         </div>
 
         <div>
-          <MailRoundedIcon className="contactShop--icons" />
+          <MailRoundedIcon
+            className="contactShop--icons"
+            color="primary"
+            fontSize="large"
+          />
           <p>{store.store_email}</p>
         </div>
       </div>
