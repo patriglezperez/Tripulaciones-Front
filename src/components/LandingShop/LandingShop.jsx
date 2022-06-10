@@ -1,8 +1,9 @@
 import OwnerProfile from "../OwnerProfile/OwnerProfile";
 import Fruteria from "../../assets/img/fruteria.jpg";
-import LocationOnOutlinedIcon from "@mui/icons-material/LocationOnOutlined";
 import BusinessMap from "./BusinessMap";
 import React, { useState } from "react";
+import ContactShop from "../ContactShop/ContactShop";
+import ShopPresentation from "../ShopPresentation/ShopPresentation";
 
 function LandingShop() {
   const [adress, setAdress] = useState("");
@@ -13,7 +14,6 @@ function LandingShop() {
     longitude_coordinates: 2.17403,
   };
 
-  //[{coordinates:[lat,lng]}]
   const [mapModal, setMapModal] = useState(false);
   const lng = store.latitude_coordinates;
   const lat = store.longitude_coordinates;
@@ -41,16 +41,16 @@ function LandingShop() {
         </div>
       </div>
 
-      {/* About */}
+      {/* About owner*/}
       <OwnerProfile />
 
-      <hr />
+      {/* About business*/}
+      <ShopPresentation />
+
+      <ContactShop />
+      {/* [{coordinates:[lat,lng]}] */}
       {/* Address */}
       <div className="landingShop--address--elements">
-        <div className="landingShop--address--text">
-          <LocationOnOutlinedIcon fontSize="large" />
-          <p>{store.store_address}</p>
-        </div>
         {mapModal === false ? (
           <div className="landingShop--address--map">
             <BusinessMap

@@ -1,8 +1,19 @@
+.ownerProfile {
+  @media (min-width: 1024px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
 .ownerProfile--component {
   display: flex;
   flex-direction: column;
   width: 100%;
   padding: 20px;
+
+  @media (min-width: 1024px) {
+    width: 80%;
+  }
 }
 .ownerProfile--container {
   display: flex;
@@ -10,6 +21,10 @@
   padding: 15px;
   flex-wrap: wrap;
   justify-content: space-evenly;
+
+  // @media (min-width: 768px) {
+  //   justify-content: center;
+  // }
 }
 
 .card {
@@ -17,7 +32,7 @@
   height: 24rem;
   border-radius: 50px;
   background: #e0e0e0;
-  // box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+  margin-right: 20px;
 }
 
 .ownerProfile--image {
@@ -27,10 +42,13 @@
 
 .ownerProfile--description {
   display: flex;
-  justify-content: space-evenly;
   flex-direction: column;
   width: 50rem;
   padding-top: 15px;
+  font-size: 20px;
+  line-height: 30px;
+  width: 35rem;
+  text-align: justify;
 }
 
 //Follow

@@ -4,21 +4,15 @@ import { createRoot } from "react-dom/client";
 import Marker from "../Map/subComponents/Marker";
 mapboxgl.accessToken = process.env.REACT_APP_MAP_TOKEN;
 
-export default function BusinessMap({
-  //   features,
-  //   //   changePlace,
-  //   setmarker,
-  //   mapType: type,
-  current,
-}) {
+export default function BusinessMap({ current }) {
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [lng, setLng] = useState(current.center[0]);
   const [lat, setLat] = useState(current.center[1]);
-  const [zoom, setZoom] = useState(5);
+  const [zoom, setZoom] = useState(1);
   const [mapType, setMapType] = useState(current.mapType);
   const coordinates = [lat, lng];
-  const [userPosition, setUserPosition] = useState(coordinates);
+  const [businessPosition, setBusinessPosition] = useState(coordinates);
 
   // initialize map only once
   useEffect(() => {
@@ -27,21 +21,8 @@ export default function BusinessMap({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v11",
       center: [lat, lng],
-      zoom: zoom,
+      zoom: false,
     });
-    console.log(map, "userPosition here");
-    //Adding geolocalitation controller.
-    map.current.addControl(
-      new mapboxgl.GeolocateControl({
-        positionOptions: {
-          enableHighAccuracy: true,
-        },
-        // When active the map will receive updates to the device's location as it changes.
-        trackUserLocation: true,
-        // Draw an arrow next to the location dot to indicate which direction the device is heading.
-        showUserHeading: true,
-      })
-    );
 
     //In case of having to display points on the map
     if (mapType === "features") {
@@ -55,7 +36,6 @@ export default function BusinessMap({
         ref.current = document.createElement("div");
         const root = createRoot(ref.current);
         root.render(<Marker onClick={markerClicked}>{indexMarker}</Marker>);
-        indexMarker++;
 
         // Create a Mapbox Marker at our new DOM node
         new mapboxgl.Marker(ref.current)
@@ -73,13 +53,14 @@ export default function BusinessMap({
       }
     }
   });
+
   //Update map state
   useEffect(() => {
     if (!map.current) return; // wait for map to initialize
     map.current.on("move", () => {
       setLng(map.current.getCenter().lng.toFixed(5));
       setLat(map.current.getCenter().lat.toFixed(5));
-      setZoom(map.current.getZoom().toFixed(4));
+      setZoom(map.current.getZoom().toFixed(2));
     });
   });
 
@@ -89,7 +70,7 @@ export default function BusinessMap({
 
   return (
     <div ref={mapContainer} className="map-container">
-      {userPosition !== null ? <div map={map}></div> : null}
+      {businessPosition !== null ? <div map={map}></div> : null}
     </div>
   );
 }

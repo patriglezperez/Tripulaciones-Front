@@ -1,25 +1,26 @@
 import Owner from "../../assets/img/Woman.jpg";
-import ContactShop from "../ContactShop/ContactShop";
-import ShopPresentation from "../ShopPresentation/ShopPresentation";
 
 function OwnerProfile() {
   let store = {
     image_owner: Owner,
     owner_name: "Ana María",
     description_store:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.",
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
   };
 
   return (
-    <div className="ownerProfile--component">
-      <div className="ownerProfile--container">
-        <img src={Owner} alt="propietario/a" className="card" />
+    <div className="ownerProfile">
+      <div className="ownerProfile--component">
+        <div className="ownerProfile--container">
+          <img src={Owner} alt="propietario/a" className="card" />
 
-        <div className="ownerProfile--description">
-          <h2>Conoce a {store.owner_name}</h2>
-          <p>{store.description_store}</p>
-          <ContactShop />
-          <ShopPresentation />
+          <div className="ownerProfile--description">
+            <h2>Conoce a {store.owner_name}</h2>
+            <br />
+            <hr class="wave" />
+            <br />
+            <p>{store.description_store}</p>
+          </div>
         </div>
       </div>
     </div>

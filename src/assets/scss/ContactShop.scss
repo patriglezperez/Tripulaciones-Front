@@ -1,24 +1,28 @@
+.contactShop {
+  display: flex;
+  justify-content: center;
+}
+
 .contactShop--container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 100%;
   padding: 20px;
-}
-
-.contactShop--elements {
-  display: flex;
-  flex-direction: row;
   justify-content: space-around;
   text-align: center;
-  width: 100%;
-}
 
-.contactShop--ind {
-  width: 1rem;
-
-  text-align: center;
-  justify-content: center;
-  img {
-    height: 4rem;
+  @media (max-width: 768px) {
+    width: 90%;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+  @media (min-width: 1024px) {
+    width: 95%;
+    max-width: 1500px;
+  }
+  .contactShop--icons {
+    height: 5rem;
   }
 }

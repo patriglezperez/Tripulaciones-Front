@@ -91,6 +91,10 @@ export default function RegisterBusinessForm() {
     e.preventDefault();
     setMapModal(!mapModal);
   };
+
+  
+ 
+
   return (
     <div className="register-business-container">
       <h2>RegisterBusinessForm</h2>
