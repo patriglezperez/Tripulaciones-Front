@@ -1,0 +1,60 @@
+.error--component {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.error--detail {
+  line-height: 500px;
+  font-size: 2rem;
+  color: rgb(187, 187, 187);
+  font-weight: 800;
+}
+
+//error button
+.error--btn {
+  width: 140px;
+  height: 50px;
+  background: #65a26b;
+  color: #fff;
+  border-radius: 50px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.error--btn span {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: top 0.5s;
+}
+
+.error--btn--textOne {
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.error--btn--textTwo {
+  position: absolute;
+  width: 100%;
+  top: 150%;
+  left: 0;
+  transform: translateY(-50%);
+}
+
+.error--btn:hover .error--btn--textOne {
+  top: -100%;
+}
+
+.error--btn:hover .error--btn--textTwo {
+  top: 50%;
+}

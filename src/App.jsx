@@ -9,8 +9,7 @@ import LandPage from "./components/landpage/LandPage";
 import NavBar from "./components/navbar/NavBar";
 import Login from "./components/Login";
 function App() {
-  const error = "Page not found";
-  const error404 = "Error 404";
+  const error = "Error 404. Página no encontrada";
 
   return (
     <div>
@@ -24,10 +23,7 @@ function App() {
           <Route path="/business-managment" element={<BusinessManagment />} />
           <Route path="/confirmed-order" element={<ConfirmedOrder />} />
           <Route path="/register-business" element={<RegisterBusinessForm />} />
-          <Route
-            path="*"
-            element={<Error error={error} error404={error404} />}
-          />
+          <Route path="*" element={<Error error={error} />} />
         </Routes>
       </BrowserRouter>
     </div>
