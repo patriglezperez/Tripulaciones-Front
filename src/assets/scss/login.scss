@@ -1,0 +1,63 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 40px;
+  width: 40%;
+  h1 {
+    color: #515151;
+  }
+  .form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    text-align: center;
+  }
+  .input {
+    margin-bottom: 20px;
+  }
+  .divider {
+    font-size: 20px;
+    text-align: center;
+    position: relative;
+    color: rgb(126 126 126);
+    &::after {
+      position: absolute;
+      content: "";
+      height: 1px;
+      right: 55%;
+      left: 0;
+      top: 50%;
+      background-color: rgb(126 126 126);
+    }
+    &::before {
+      position: absolute;
+      content: "";
+      height: 1px;
+      right: 0;
+      left: 55%;
+      top: 50%;
+      background-color: rgb(126 126 126);
+    }
+  }
+}
+
+.button-google {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #fff;
+  color: black;
+  font-weight: 500;
+  text-transform: unset;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  margin: 0 auto;
+  img {
+    height: 32px;
+  }
+}

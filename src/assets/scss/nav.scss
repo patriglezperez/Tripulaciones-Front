@@ -1,0 +1,14 @@
+@media (min-width: $mobile) {
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    height: -webkit-fit-content;
+    height: -moz-fit-content;
+    height: fit-content;
+    .nav-item {
+      color: #fff;
+      text-transform: capitalize;
+      cursor: pointer;
+    }
+  }
+}

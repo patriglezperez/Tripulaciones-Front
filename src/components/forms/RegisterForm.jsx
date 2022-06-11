@@ -22,7 +22,7 @@ const schema = yup.object({
     .test(
       "equalsDigits",
       "number field must have exactly 5 digits",
-      (number) => String(number).length === 5
+      (number) => String(number).length === 5,
     )
     .required()
     .positive()
@@ -36,7 +36,7 @@ const schema = yup.object({
     .min(8, "password is to short, must be minimun 8 characters")
     .matches(
       passwordRegex,
-      "password needs at list an Uppercase, lowercase and number"
+      "password needs at list an Uppercase, lowercase and number",
     ),
 });
 
@@ -60,15 +60,28 @@ const RegisterForm = () => {
         reset();
       })}
     >
-      <input type="email" {...register("email")} placeholder="Email" />
+      <input
+        type="email"
+        {...register("email")}
+        placeholder="Email"
+        className="input"
+      />
       {<p>{errors.email?.message}</p>}
-      <input {...register("name")} placeholder="Name" />
+      <input {...register("name")} placeholder="Name" className="input" />
       {<p>{errors.name?.message}</p>}
-      <input {...register("address1")} placeholder="Address1" />
+      <input
+        {...register("address1")}
+        placeholder="Address1"
+        className="input"
+      />
       {<p>{errors.address1?.message}</p>}
-      <input {...register("address2")} placeholder="Address2" />
+      <input
+        {...register("address2")}
+        placeholder="Address2"
+        className="input"
+      />
       {<p>{errors.address2?.message}</p>}
-      <input {...register("cp")} placeholder="Cp" />
+      <input {...register("cp")} placeholder="Cp" className="input" />
       {<p>{errors.cp?.message}</p>}
       {/* <select {...register("doctype")} defaultValue="Document type">
 
@@ -79,12 +92,22 @@ const RegisterForm = () => {
         {<p>{errors.doctype?.message}</p>}
         <input {...register("docnum")} placeholder="Document Number" />
         {<p>{errors.docnum?.message}</p>} */}
-      <input type="tel" {...register("tlf")} placeholder="Telephone number" />
+      <input
+        type="tel"
+        {...register("tlf")}
+        placeholder="Telephone number"
+        className="input"
+      />
       {<p>{errors.tlf?.message}</p>}
-      <input type="password" {...register("password")} placeholder="Password" />
+      <input
+        type="password"
+        {...register("password")}
+        placeholder="Password"
+        className="input"
+      />
       {<p>{errors.password?.message}</p>}
 
-      <button>Submit</button>
+      <button className="primary-button">registrarse</button>
     </form>
   );
 };

@@ -23,8 +23,6 @@ export default function Map({
   const dragEnd = async (e) => {
     const data = await getAddress(e.target._lngLat);
   };
-  console.log(features, "features");
-  console.log(userPosition, "userposition");
   //Update map type
   useEffect(() => {
     setMapType(type);

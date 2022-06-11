@@ -2,5 +2,81 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  // font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-family: "Roboto", sans-serif;
+  font-size: 16px;
+}
+body {
+  margin: 0 auto;
+  background-color: #efefef;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 900;
+  text-align: center;
+  text-transform: uppercase;
+}
+h2 {
+  font-size: 26px;
+}
+p {
+  font-size: 16px;
+}
+.container {
+  width: 95%;
+  height: 100%;
+  margin: 0 auto;
+  @media (min-width: $mobile) {
+    width: 75%;
+  }
+}
+.primary-button {
+  margin: 10px 0;
+  padding: 5px 15px;
+  border: none;
+  border-radius: 15px;
+  background-color: $secondaryColor;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  height: 45px;
+  width: 230px;
+  color: #fff;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.secondary-button {
+  margin: 10px 0;
+  padding: 5px 15px;
+  border: solid 2px $secondaryColor;
+  border-radius: 15px;
+  background-color: #fff;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+  height: 45px;
+  width: 230px;
+  color: $secondaryColor;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+@media (min-width: $mobile) {
+  .secondary-button,
+  .primary-button {
+    width: 275px;
+  }
+}
+// input[type="email"] {
+//   background-color: #ff0000;
+// }
+.input {
+  border: solid 2px $primaryColor;
+  outline: none;
+  border-radius: 15px;
+  padding: 10px;
+  width: 272px;
+  background: #ffffff;
+}
+.input::-moz-selection {
+  border: solid 2px $primaryColor;
 }
