@@ -8,8 +8,11 @@
     border: 1px solid rgba(28, 28, 28, 0.286);
     display: flex;
     padding: 1rem;
-
     height: 10rem;
+
+    &:hover {
+      background-color: rgb(238, 238, 238);
+    }
     .ecommerce-item-image img {
       max-width: 100%;
       max-height: 100%;
@@ -29,11 +32,31 @@
       color: rgb(70, 70, 70);
       padding-left: 1rem;
       text-align: center;
+      
     }
     .ecommerce-item-add-button {
       position: absolute;
+      display: flex;
+      justify-content: space-between;
+      width: 5rem;
       bottom: 0;
       right: 0;
+    }
+    button{
+        background-color: rgb(254, 254, 254);
+        border: 1px solid rgba(28, 28, 28, 0.286);
+        min-width: 1.5rem;
+        padding: 0 0.3rem;
+        transition: 0.2s;
+
+        &:hover{
+            background-color: rgb(235, 163, 75);
+            border: 1px solid rgba(28, 28, 28, 0.286);
+            min-width: 1.5rem;
+            padding: 0 0.3rem;
+            color: white;
+            transition: 0.2s;
+        }
     }
   }
 }

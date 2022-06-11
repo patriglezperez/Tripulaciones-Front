@@ -27,11 +27,15 @@ export default function EcommerceItem({ item }) {
         <div className="ecommerce-item-name">{item.name}</div>
         <div className="ecommerce-item-price">{item.price}€</div>
         <div className="ecommerce-item-add-button">
-          <button onClick={() => addToCart(item)}>+</button>
-          <button onClick={() => removeFromCart(item)}>-</button>
           {quantity > 0 && (
-            <div className="ecommerce-item-quantity">{quantity}</div>
+            <>
+              <button onClick={() => removeFromCart(item)}>-</button>
+              <div className="ecommerce-item-quantity">{quantity}</div>
+            </>
           )}
+          <button onClick={() => addToCart(item)}>
+            {quantity > 0 ? "+" : "Añadir"}
+          </button>
         </div>
       </div>
     </div>
