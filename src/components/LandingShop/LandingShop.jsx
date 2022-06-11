@@ -1,14 +1,13 @@
-import OwnerProfile from "../OwnerProfile/OwnerProfile";
-import Fruteria from "../../assets/img/fruteria.jpg";
-import BusinessMap from "./BusinessMap";
+import OwnerProfile from "../../components/LandingShop/OwnerProfile/OwnerProfile";
+import FruitShop from "../../assets/img/fruteria.jpg";
+import BusinessMap from "./BusinessMap/BusinessMap";
 import React, { useState } from "react";
-import ContactShop from "../ContactShop/ContactShop";
-import ShopPresentation from "../ShopPresentation/ShopPresentation";
+import ContactShop from "./ContactShop/ContactShop";
+import ShopPresentation from "../../components/LandingShop/ShopPresentation/ShopPresentation";
 
 function LandingShop() {
-  const [adress, setAdress] = useState("");
   let store = {
-    store_address: "C. Dr. Esquerdo, 110, 28007 Madrid, España",
+    store_address: "C. Dr. Esquerdo, 110",
     store_name: "Frutas y verduras",
     latitude_coordinates: 41.40338,
     longitude_coordinates: 2.17403,
@@ -24,7 +23,7 @@ function LandingShop() {
     <>
       {/* Landing Image */}
       <div className="landingShop--container">
-        <img src={Fruteria} alt="comercio" className="landingShop--img" />
+        <img src={FruitShop} alt="comercio" className="landingShop--img" />
 
         <div className="landingShop--shop--name">{store.store_name}</div>
       </div>
@@ -44,12 +43,13 @@ function LandingShop() {
       {/* About owner*/}
       <OwnerProfile />
 
-      {/* About business*/}
+      {/* Business Description*/}
       <ShopPresentation />
 
+      {/* Contact*/}
       <ContactShop />
-      {/* [{coordinates:[lat,lng]}] */}
-      {/* Address */}
+
+      {/* Map */}
       <div className="landingShop--address--elements">
         {mapModal === false ? (
           <div className="landingShop--address--map">

@@ -1,7 +1,7 @@
 import mapboxgl from "mapbox-gl";
 import React, { useState, useRef, useEffect } from "react";
 import { createRoot } from "react-dom/client";
-import Marker from "../Map/subComponents/Marker";
+import Marker from "../../Map/subComponents/Marker";
 mapboxgl.accessToken = process.env.REACT_APP_MAP_TOKEN;
 
 export default function BusinessMap({ current }) {
@@ -11,10 +11,12 @@ export default function BusinessMap({ current }) {
   const [lat, setLat] = useState(current.center[1]);
   const [zoom, setZoom] = useState(1);
   const [mapType, setMapType] = useState(current.mapType);
+
   const coordinates = [lat, lng];
+
   const [businessPosition, setBusinessPosition] = useState(coordinates);
 
-  // initialize map only once
+  // initialize map
   useEffect(() => {
     if (map.current) return;
     map.current = new mapboxgl.Map({
@@ -24,18 +26,18 @@ export default function BusinessMap({ current }) {
       zoom: false,
     });
 
-    //In case of having to display points on the map
+    //Add the position of the business in the map
     if (mapType === "features") {
       if (current.center?.length > 0) {
         const bounds = [];
-        let indexMarker = 1;
+        let indexMarker = "B";
 
         // Create a React ref
         const ref = React.createRef();
         // Create a new DOM node and save it to the React ref
         ref.current = document.createElement("div");
         const root = createRoot(ref.current);
-        root.render(<Marker onClick={markerClicked}>{indexMarker}</Marker>);
+        root.render(<Marker>{indexMarker}</Marker>);
 
         // Create a Mapbox Marker at our new DOM node
         new mapboxgl.Marker(ref.current)
@@ -54,19 +56,15 @@ export default function BusinessMap({ current }) {
     }
   });
 
-  //Update map state
+  //Center the position of the mark in the map
   useEffect(() => {
-    if (!map.current) return; // wait for map to initialize
+    if (!map.current) return;
     map.current.on("move", () => {
       setLng(map.current.getCenter().lng.toFixed(5));
       setLat(map.current.getCenter().lat.toFixed(5));
       setZoom(map.current.getZoom().toFixed(2));
     });
   });
-
-  const markerClicked = (e) => {
-    console.log(e.target);
-  };
 
   return (
     <div ref={mapContainer} className="map-container">

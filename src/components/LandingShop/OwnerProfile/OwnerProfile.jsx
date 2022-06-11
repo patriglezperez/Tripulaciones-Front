@@ -1,4 +1,4 @@
-import Owner from "../../assets/img/Woman.jpg";
+import Owner from "../../../assets/img/Woman.jpg";
 
 function OwnerProfile() {
   let store = {
