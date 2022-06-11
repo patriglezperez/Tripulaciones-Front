@@ -22,21 +22,21 @@ function ContactShop() {
         </div>
 
         <div>
-          <HomeRoundedIcon
-            className="contactShop--icons"
-            color="primary"
-            fontSize="large"
-          />
-          <p>{store.store_address}</p>
-        </div>
-
-        <div>
           <MailRoundedIcon
             className="contactShop--icons"
             color="primary"
             fontSize="large"
           />
           <p>{store.store_email}</p>
+        </div>
+
+        <div>
+          <HomeRoundedIcon
+            className="contactShop--icons"
+            color="primary"
+            fontSize="large"
+          />
+          <p>{store.store_address}</p>
         </div>
       </div>
     </div>

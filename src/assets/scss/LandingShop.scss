@@ -156,3 +156,39 @@ a.mapboxgl-ctrl-logo {
   visibility: hidden;
 }
 //
+
+//title effects
+
+//wave title
+@mixin wavy-border($color: #000, $stroke: 1, $width: 50, $height: 25) {
+  border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 #{$width} #{$height+$stroke}" width="#{$width}" height="#{$height+$stroke}"><path fill="none" stroke="#{$color}" stroke-width="#{$stroke}" d="M0,#{$height+($stroke/2)}c#{$width/4},0,#{$width/4}-#{$height},#{$width/2}-#{$height}s#{$width/4},#{$height},#{$width/2},#{$height}"/></svg>')
+    0 0 100% repeat;
+  border-width: 0 0 #{$height + $stroke}px;
+  border-style: solid;
+}
+
+.wave {
+  width: 35%;
+  @include wavy-border(hsla(20, 77%, 48%, 0.9), 3, 12, 12);
+  position: relative;
+}
+
+.wave:before,
+.wave:after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 30px;
+  background-color: hsl(30, 94%, 49%);
+  bottom: -22.5px;
+}
+
+.wave:before {
+  border-radius: 30px 0 0 30px;
+  left: -2px;
+}
+
+.wave:after {
+  border-radius: 0 30px 30px 0;
+  right: -2px;
+}
