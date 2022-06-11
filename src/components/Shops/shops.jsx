@@ -47,7 +47,9 @@ function Shops() {
               <img className="shop--image" alt="images" src={shop.img} />
             </div>
             <div className="shop--details">
-              <p>{shop.name}</p>
+              <p>
+                <b>{shop.name}</b>
+              </p>
               <div class="shop--valoration">
                 {/* Star 1 */}
                 <button>
