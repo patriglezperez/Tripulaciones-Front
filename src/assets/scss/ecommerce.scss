@@ -1,0 +1,39 @@
+.ecommerce-container {
+  display: flex;
+  justify-content: center;
+  background-color: rgb(215, 215, 215);
+
+  .ecommerce-item {
+    background-color: rgb(254, 254, 254);
+    border: 1px solid rgba(28, 28, 28, 0.286);
+    display: flex;
+    padding: 1rem;
+
+    height: 10rem;
+    .ecommerce-item-image img {
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
+  .ecommerce-item-description {
+    position: relative;
+
+    .ecommerce-item-name {
+      font-size: 2rem;
+      color: rgb(70, 70, 70);
+      padding-left: 1rem;
+      flex-grow: 1;
+    }
+    .ecommerce-item-price {
+      font-size: 1.5rem;
+      color: rgb(70, 70, 70);
+      padding-left: 1rem;
+      text-align: center;
+    }
+    .ecommerce-item-add-button {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+  }
+}

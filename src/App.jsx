@@ -8,9 +8,11 @@ import RegisterBusinessForm from "./components/forms/RegisterBusinessForm";
 import LandPage from "./components/landpage/LandPage";
 import NavBar from "./components/navbar/NavBar";
 import Login from "./components/Login";
+import Ecommerce from "./components/Ecommerce";
 function App() {
   const error = "Page not found";
   const error404 = "Error 404";
+
 
   return (
     <div>
@@ -19,11 +21,12 @@ function App() {
         <Routes>
           <Route path="/" element={<LandPage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/singin" element={<RegisterForm />} />
+          <Route path="/signin" element={<RegisterForm />} />
           <Route path="/register-user" element={<RegisterForm />} />
           <Route path="/business-managment" element={<BusinessManagment />} />
           <Route path="/confirmed-order" element={<ConfirmedOrder />} />
           <Route path="/register-business" element={<RegisterBusinessForm />} />
+          <Route path="/ecommerce" element={<Ecommerce />} />
           <Route
             path="*"
             element={<Error error={error} error404={error404} />}
