@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "../../context/authContext";
 import axios from "axios";
+import googleLogo from "../../assets/img/logoGoogle.svg";
 
 export default function Login() {
   const { login, loginWithGoogle, user, signout, headerToken } = useAuth();
@@ -28,23 +29,38 @@ export default function Login() {
   };
 
   return (
-    <div>
+    <div className="login container">
       <h1>Login</h1>
-      <form>
-        <label>
-          Email:
-          <input type="email" name="email" />
-        </label>
-        <label>
-          Password:
-          <input type="password" name="password" />
-        </label>
-        <button type="submit">Login</button>
+      <form className="form">
+        <input
+          className="input"
+          type="email"
+          placeholder="Correo"
+          name="email"
+        />
+
+        <input
+          className="input"
+          type="password"
+          placeholder="Contraseña"
+          name="password"
+        />
+
+        <button type="submit" className="primary-button">
+          Login
+        </button>
       </form>
-      {isLogged ? currentUser.displayName : "Not logged"}
+      <p className="divider">ó</p>
+      {/* {isLogged ? currentUser.displayName : "Not logged"} */}
       {isLogged ? <button onClick={async () => signout()}>Signout</button> : ""}
-      <button onClick={() => loginWithGoogle()}>Login with Google</button>
-      <button onClick={() => messageToBack()}>Get to server with header</button>
+      <button
+        className="button-google primary-button"
+        onClick={() => loginWithGoogle()}
+      >
+        <img src={googleLogo}></img>
+        Login with Google
+      </button>
+      {/* <button onClick={() => messageToBack()}>Get to server with header</button> */}
     </div>
   );
 }
