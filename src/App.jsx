@@ -9,6 +9,7 @@ import LandingShop from "./components/LandingShop/LandingShop";
 import LandPage from "./components/landpage/LandPage";
 import NavBar from "./components/navbar/NavBar";
 import Login from "./components/Login";
+import Shops from "./components/Shops/shops";
 import Ecommerce from "./components/Ecommerce";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../src/utils/theme/themeConfig";
@@ -30,7 +31,7 @@ function App() {
           <Route path="/business-managment" element={<BusinessManagment />} />
           <Route path="/confirmed-order" element={<ConfirmedOrder />} />
           <Route path="/register-business" element={<RegisterBusinessForm />} />
-
+          <Route path="/business/type" element={<Shops />} />
           <Route path="/ecommerce" element={<Ecommerce />} />
           <Route
             path="*"
