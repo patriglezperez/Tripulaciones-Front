@@ -21,23 +21,18 @@ function UserProfile() {
   //   Switch to editable mode or not
   function handleChange() {
     setIsEditable(!isEditable);
-    console.log("isEditable", isEditable);
   }
 
   //Edit the name
   function NameChange(event) {
     const newName = event.target.value;
     setName(newName);
-    console.log("newName", newName);
-    console.log("name", name);
   }
 
   //Edit the last name
   function LastNameChange(event) {
     const newLastName = event.target.value;
     setLastName(newLastName);
-    console.log("newLastName", newLastName);
-    console.log("lastName", lastName);
   }
 
   return (
