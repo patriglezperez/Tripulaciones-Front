@@ -35,7 +35,7 @@ function App() {
           <Route path="/ecommerce" element={<Ecommerce />} />
           <Route
             path="*"
-            element={<Error error={error} error404={error404} />}
+            element={<Error error={error} />}
           />
         </Routes>
       </BrowserRouter>
