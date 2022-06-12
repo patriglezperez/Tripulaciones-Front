@@ -1,0 +1,194 @@
+//Landing Image
+.landingShop--container {
+  position: relative;
+  display: inline-block;
+  text-align: center;
+  width: 100%;
+}
+
+.landingShop--img {
+  object-fit: cover;
+  width: 100vw;
+  height: 250px;
+  margin-top: 40px;
+}
+.landingShop--shop--name {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+  color: white;
+}
+
+//Address
+.landingShop--address--elements {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  font-size: 1.2rem;
+  padding: 20px;
+}
+
+.landingShop--address--text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 1.2rem;
+  text-align: center;
+  margin-bottom: 15px;
+  .gray {
+    color: gray;
+    font-size: 1rem;
+  }
+}
+
+//Map
+.landingShop--map {
+  width: 100%;
+  border: 0;
+  height: 450px;
+}
+
+//Notifications Button
+.landingShop--notifications--container {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.landingShop--notifications {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+  font-size: 1.2rem;
+  padding: 20px;
+  max-width: 317px;
+
+  p {
+    margin-right: 20px;
+  }
+}
+
+// The switch - the box around the slider
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 3.5em;
+  height: 1.5em;
+  display: flex;
+  flex-direction: row;
+}
+// Hide default HTML checkbox
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+// The slider
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 1rem 0rem 1rem;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.5em;
+  width: 1.4em;
+  left: 0em;
+  bottom: 0em;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 1rem 0rem 1rem;
+  border: 3px solid white;
+}
+
+input:checked + .slider {
+  background-color: #72eb67;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(2.2em);
+  background-color: green;
+  box-shadow: 0px 0px 40px 5px #72eb67;
+  border: 3px solid white;
+}
+
+input:checked + .slider::after {
+  content: "|";
+  color: white;
+  position: absolute;
+  right: 0.3rem;
+  transform: rotate(45deg);
+}
+
+//map
+
+.landingShop--address--map {
+  height: 20rem;
+  width: 100%;
+}
+
+.mapboxgl-canvas {
+  width: 1068px;
+  height: 332px;
+}
+
+//we delete the advertising letters
+.mapboxgl-ctrl-bottom-right {
+  visibility: hidden;
+}
+a.mapboxgl-ctrl-logo {
+  visibility: hidden;
+}
+//
+
+//title effects
+
+//wave title
+@mixin wavy-border($color: #000, $stroke: 1, $width: 50, $height: 25) {
+  border-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 #{$width} #{$height+$stroke}" width="#{$width}" height="#{$height+$stroke}"><path fill="none" stroke="#{$color}" stroke-width="#{$stroke}" d="M0,#{$height+($stroke/2)}c#{$width/4},0,#{$width/4}-#{$height},#{$width/2}-#{$height}s#{$width/4},#{$height},#{$width/2},#{$height}"/></svg>')
+    0 0 100% repeat;
+  border-width: 0 0 #{$height + $stroke}px;
+  border-style: solid;
+}
+
+.wave {
+  width: 35%;
+  @include wavy-border(hsla(20, 77%, 48%, 0.9), 3, 12, 12);
+  position: relative;
+}
+
+.wave:before,
+.wave:after {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 30px;
+  background-color: hsl(30, 94%, 49%);
+  bottom: -22.5px;
+}
+
+.wave:before {
+  border-radius: 30px 0 0 30px;
+  left: -2px;
+}
+
+.wave:after {
+  border-radius: 0 30px 30px 0;
+  right: -2px;
+}
