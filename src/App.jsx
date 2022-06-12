@@ -13,33 +13,24 @@ import { ThemeProvider } from "@mui/material/styles";
 import theme from "../src/utils/theme/themeConfig";
 
 function App() {
-  const error = "Page not found";
-  const error404 = "Error 404";
+  const error = "Error 404. Página no encontrada";
 
   return (
     <div>
-      <ThemeProvider theme={theme}>
-        <BrowserRouter>
-          <NavBar />
-          <Routes>
-            <Route path="/" element={<LandPage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/singin" element={<RegisterForm />} />
-            <Route path="/register-user" element={<RegisterForm />} />
-            <Route path="/business" element={<LandingShop />} />
-            <Route path="/business-managment" element={<BusinessManagment />} />
-            <Route path="/confirmed-order" element={<ConfirmedOrder />} />
-            <Route
-              path="/register-business"
-              element={<RegisterBusinessForm />}
-            />
-            <Route
-              path="*"
-              element={<Error error={error} error404={error404} />}
-            />
-          </Routes>
-        </BrowserRouter>
-      </ThemeProvider>
+      <BrowserRouter>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<LandPage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/singin" element={<RegisterForm />} />
+          <Route path="/register-user" element={<RegisterForm />} />
+          <Route path="/business" element={<LandingShop />} />
+          <Route path="/business-managment" element={<BusinessManagment />} />
+          <Route path="/confirmed-order" element={<ConfirmedOrder />} />
+          <Route path="/register-business" element={<RegisterBusinessForm />} />
+          <Route path="*" element={<Error error={error} />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
