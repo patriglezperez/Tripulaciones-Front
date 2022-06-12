@@ -7,16 +7,16 @@ import ConfirmedOrder from "./components/ConfirmedOrder";
 import RegisterBusinessForm from "./components/forms/RegisterBusinessForm";
 import LandingShop from "./components/LandingShop/LandingShop";
 import LandPage from "./components/landpage/LandPage";
-import NavBar from "./components/navbar/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import Login from "./components/Login";
 import Shops from "./components/Shops/shops";
 import Ecommerce from "./components/Ecommerce";
+import UserProfile from "./components/UserProfile/UserProfile";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../src/utils/theme/themeConfig";
 
 function App() {
   const error = "Error 404. Página no encontrada";
-
 
   return (
     <div>
@@ -33,10 +33,8 @@ function App() {
           <Route path="/register-business" element={<RegisterBusinessForm />} />
           <Route path="/business/type" element={<Shops />} />
           <Route path="/ecommerce" element={<Ecommerce />} />
-          <Route
-            path="*"
-            element={<Error error={error} error404={error404} />}
-          />
+          <Route path="/profile" element={<UserProfile />} />
+          <Route path="*" element={<Error error={error} />} />
         </Routes>
       </BrowserRouter>
     </div>

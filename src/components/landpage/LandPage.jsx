@@ -1,4 +1,4 @@
-import NavBar from "../navbar/NavBar";
+import NavBar from "../../components/NavBar/NavBar";
 import ResumenUser from "./resumenUser";
 
 const LandPage = () => {
