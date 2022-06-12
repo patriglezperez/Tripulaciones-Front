@@ -43,7 +43,7 @@ function UserProfile() {
   return (
     <div className="UserProfile--container">
       <div className="userProfile--data">
-        <div>
+        <div className="userProfile--top">
           <img src={UserImage} alt="user" className="userProfile--img" />
           <p className="userProfile--email">{client.client_email}</p>
         </div>
@@ -51,8 +51,18 @@ function UserProfile() {
         {/* User info */}
         {isEditable === true ? (
           <div className="userProfile--user--info">
+            <div className="userProfile--btn">
+              <h3>INFORMACIÓN PERSONAL</h3>
+              <CheckIcon
+                fontSize="small"
+                onClick={handleChange}
+                className="userProfile--icon"
+                color="primary"
+              />
+            </div>
+
             <div className="userProfile--editable">
-              <p>Nombre:</p>
+              <p className="userProfile--titles">Nombre:</p>
               <input
                 type={"text"}
                 className="userProfile--name"
@@ -61,55 +71,54 @@ function UserProfile() {
               />
             </div>
             <div className="userProfile--editable">
-              <p>Apellido:</p>
+              <p className="userProfile--titles">Apellido:</p>
               <input
                 type={"text"}
                 className="userProfile--lastName"
                 onChange={LastNameChange}
                 value={lastName}
               />
-              <CheckIcon
-                fontSize="small"
-                onClick={handleChange}
-                className="userProfile--icon"
-              />
+            </div>
+            <div className="userProfile--editable">
+              <p className="userProfile--titles">Fecha de alta:</p>
+              <p>{client.discharge_date}</p>
             </div>
           </div>
         ) : (
           <div className="userProfile--user--info">
-            <div className="userProfile--editable">
-              <p>Nombre:</p>
-              <p className="userProfile--name">{name}</p>
-            </div>
-
-            <div className="userProfile--editable">
-              <p>Apellido:</p>
-              <p className="userProfile--lastName">{lastName}</p>
+            <div className="userProfile--btn">
+              <h3>INFORMACIÓN PERSONAL</h3>
               <EditIcon
                 fontSize="small"
                 onClick={handleChange}
                 className="userProfile--icon"
+                color="primary"
               />
+            </div>
+            <div className="userProfile--editable">
+              <p className="userProfile--titles">Nombre:</p>
+              <p className="userProfile--name">{name}</p>
+            </div>
+
+            <div className="userProfile--editable">
+              <p className="userProfile--titles">Apellido:</p>
+              <p className="userProfile--lastName">{lastName}</p>
+            </div>
+            <div className="userProfile--editable">
+              <p className="userProfile--titles">Fecha de alta:</p>
+              <p>{client.discharge_date}</p>
             </div>
           </div>
         )}
-      </div>
 
-      {/* Account Information */}
-
-      <div>
-        <div className="userProfile--editable">
-          <p className="userProfile--lastName">{client.modification_date}</p>
+        {/* Green Points */}
+        <div className="userProfile--user--info">
+          <h3>INFORMACIÓN DE LOS PUNTOS</h3>
+          <div className="userProfile--editable">
+            <p className="userProfile--titles">Green Points:</p>
+            <p>{client.green_dots} puntos</p>
+          </div>
         </div>
-        <div className="userProfile--editable">
-          <p className="userProfile--email">{client.discharge_date}</p>
-        </div>
-      </div>
-
-      {/* Green Points */}
-
-      <div className="userProfile--editable">
-        <p className="userProfile--name">{client.green_dots}</p>
       </div>
     </div>
   );
