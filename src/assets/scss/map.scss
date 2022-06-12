@@ -18,10 +18,9 @@
   left: 50%;
   top: 50%;
   margin: -20px 0 0 -20px;
-  &:hover{
+  &:hover {
     background: #400bff;
   }
-
 }
 x.pin:after {
   content: "";
@@ -79,5 +78,3 @@ x.pin:after {
   left: -11px;
   pointer-events: none;
 }
-
-

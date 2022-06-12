@@ -1,20 +1,23 @@
 import { useNavigate } from "react-router-dom";
 
-function Error({ error, error404 }) {
-  console.log(error, "error");
-  console.log("error404", error404);
+function Error(props) {
+  const error = props.error;
   const navigate = useNavigate();
+
   return (
-    <div>
-      <p>{error}</p>
-      <p>{error404}</p>
-      <p
+    <div className="error--component">
+      <p className="error--detail">{error}</p>
+
+      <button
+        class="error--btn"
+        className="error--btn"
         onClick={() => {
           navigate("/");
         }}
       >
-        Back to Home
-      </p>
+        <span class="error--btn--textOne">Volver a inicio</span>
+        <span class="error--btn--textTwo">Estupendo!</span>
+      </button>
     </div>
   );
 }
