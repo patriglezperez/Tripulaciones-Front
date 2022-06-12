@@ -1,0 +1,55 @@
+.nav-mobile-dark {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(0, 0, 0, 0.277);
+  width: 100vw;
+  height: 100vh;
+}
+.nav-mobile {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  opacity: 1;
+  background-color: rgb(255, 255, 255);
+  width: 50vw;
+}
+
+@media (min-width: $mobile) {
+  .nav-mobile-dark {
+    display: none;
+  }
+  .nav-mobile {
+    position: unset;
+  }
+}
+.transition-nav-enter {
+  right: -100%;
+}
+.transition-nav-enter-active {
+  right: 0;
+  transition: all 500ms;
+}
+.transition-nav-exit {
+  right: 0;
+}
+.transition-nav-exit-active {
+  right: -100%;
+  transition: all 500ms;
+}
+.transition-dark-enter {
+  opacity: 0;
+}
+.transition-dark-enter-active {
+  opacity: 1;
+  transition: all 500ms;
+}
+.transition-dark-exit {
+  opacity: 1;
+}
+.transition-dark-exit-active {
+  opacity: 0;
+  transition: all 500ms;
+}

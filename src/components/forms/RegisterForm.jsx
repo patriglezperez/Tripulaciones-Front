@@ -52,24 +52,24 @@ const RegisterForm = () => {
     postUser(data, jwt);
   } */
 
-  return (    
-      <form
-        onSubmit={handleSubmit((data) => {
-          //handlePostForm(data)
-          reset();
-        })}
-      >
-        <input type="email" {...register("email")} placeholder="Email" />
-        {<p>{errors.email?.message}</p>}
-        <input {...register("name")} placeholder="Name" />
-        {<p>{errors.name?.message}</p>}
-        <input {...register("address1")} placeholder="Address1" />
-        {<p>{errors.address1?.message}</p>}
-        <input {...register("address2")} placeholder="Address2" />
-        {<p>{errors.address2?.message}</p>}
-        <input {...register("cp")} placeholder="Cp" />
-        {<p>{errors.cp?.message}</p>}
-        {/* <select {...register("doctype")} defaultValue="Document type">
+  return (
+    <form
+      onSubmit={handleSubmit((data) => {
+        //handlePostForm(data)
+        reset();
+      })}
+    >
+      <input type="email" {...register("email")} placeholder="Email" />
+      {<p>{errors.email?.message}</p>}
+      <input {...register("name")} placeholder="Name" />
+      {<p>{errors.name?.message}</p>}
+      <input {...register("address1")} placeholder="Address1" />
+      {<p>{errors.address1?.message}</p>}
+      <input {...register("address2")} placeholder="Address2" />
+      {<p>{errors.address2?.message}</p>}
+      <input {...register("cp")} placeholder="Cp" />
+      {<p>{errors.cp?.message}</p>}
+      {/* <select {...register("doctype")} defaultValue="Document type">
 
           <option disabled>Document type</option>
           <option value="id">ID</option>
@@ -78,12 +78,23 @@ const RegisterForm = () => {
         {<p>{errors.doctype?.message}</p>}
         <input {...register("docnum")} placeholder="Document Number" />
         {<p>{errors.docnum?.message}</p>} */}
-      <input type="tel" {...register("tlf")} placeholder="Telephone number" />
+      <input
+        type="tel"
+        {...register("tlf")}
+        placeholder="Telephone number"
+        className="input"
+      />
       {<p>{errors.tlf?.message}</p>}
-      <input type="password" {...register("password")} placeholder="Password" />
+      <input
+        type="password"
+        {...register("password")}
+        placeholder="Password"
+        className="input"
+      />
       {<p>{errors.password?.message}</p>}
 
       <button>Submit</button>
+      <button className="primary-button">registrarse</button>
     </form>
   );
 };
