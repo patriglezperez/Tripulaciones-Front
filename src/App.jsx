@@ -9,11 +9,13 @@ import LandingShop from "./components/LandingShop/LandingShop";
 import LandPage from "./components/landpage/LandPage";
 import NavBar from "./components/navbar/NavBar";
 import Login from "./components/Login";
+import Ecommerce from "./components/Ecommerce";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../src/utils/theme/themeConfig";
 
 function App() {
   const error = "Error 404. Página no encontrada";
+
 
   return (
     <div>
@@ -22,13 +24,18 @@ function App() {
         <Routes>
           <Route path="/" element={<LandPage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/singin" element={<RegisterForm />} />
+          <Route path="/signin" element={<RegisterForm />} />
           <Route path="/register-user" element={<RegisterForm />} />
           <Route path="/business" element={<LandingShop />} />
           <Route path="/business-managment" element={<BusinessManagment />} />
           <Route path="/confirmed-order" element={<ConfirmedOrder />} />
           <Route path="/register-business" element={<RegisterBusinessForm />} />
-          <Route path="*" element={<Error error={error} />} />
+
+          <Route path="/ecommerce" element={<Ecommerce />} />
+          <Route
+            path="*"
+            element={<Error error={error} error404={error404} />}
+          />
         </Routes>
       </BrowserRouter>
     </div>
