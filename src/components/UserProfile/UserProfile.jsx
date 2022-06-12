@@ -1,4 +1,4 @@
-import User from "../../assets/img/Woman.jpg";
+import UserImage from "../../assets/img/userImage.jpg";
 import EditIcon from "@mui/icons-material/Edit";
 import CheckIcon from "@mui/icons-material/Check";
 import { useState } from "react";
@@ -41,43 +41,55 @@ function UserProfile() {
   }
 
   return (
-    <div className="userProfile--container">
-      <div>
+    <div className="UserProfile--container">
+      <div className="userProfile--data">
         <div>
-          <img src={User} alt="user" className="userProfile--img" />
+          <img src={UserImage} alt="user" className="userProfile--img" />
           <p className="userProfile--email">{client.client_email}</p>
         </div>
 
         {/* User info */}
         {isEditable === true ? (
-          <div>
-            <input
-              type={"text"}
-              className="userProfile--name"
-              value={name}
-              onChange={NameChange}
-            />
-            <CheckIcon fontSize="small" onClick={handleChange} />
-
-            <input
-              type={"text"}
-              className="userProfile--lastName"
-              onChange={LastNameChange}
-              value={lastName}
-            />
-
-            <CheckIcon fontSize="small" onClick={handleChange} />
+          <div className="userProfile--user--info">
+            <div className="userProfile--editable">
+              <p>Nombre:</p>
+              <input
+                type={"text"}
+                className="userProfile--name"
+                value={name}
+                onChange={NameChange}
+              />
+            </div>
+            <div className="userProfile--editable">
+              <p>Apellido:</p>
+              <input
+                type={"text"}
+                className="userProfile--lastName"
+                onChange={LastNameChange}
+                value={lastName}
+              />
+              <CheckIcon
+                fontSize="small"
+                onClick={handleChange}
+                className="userProfile--icon"
+              />
+            </div>
           </div>
         ) : (
-          <div>
+          <div className="userProfile--user--info">
             <div className="userProfile--editable">
+              <p>Nombre:</p>
               <p className="userProfile--name">{name}</p>
-              <EditIcon fontSize="small" onClick={handleChange} />
             </div>
 
             <div className="userProfile--editable">
+              <p>Apellido:</p>
               <p className="userProfile--lastName">{lastName}</p>
-              <EditIcon fontSize="small" onClick={handleChange} />
+              <EditIcon
+                fontSize="small"
+                onClick={handleChange}
+                className="userProfile--icon"
+              />
             </div>
           </div>
         )}

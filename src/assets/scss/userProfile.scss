@@ -7,3 +7,35 @@
   border-color: white;
   border-width: 6px;
 }
+
+.userProfile--data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.userProfile--user--info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+
+  p {
+    margin: 10px;
+  }
+
+  .userProfile--icon {
+    margin: 10px;
+  }
+}
+
+//editable
+.userProfile--editable {
+  justify-items: left;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
