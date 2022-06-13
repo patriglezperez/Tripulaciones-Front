@@ -32,6 +32,12 @@ p {
   @media (min-width: $mobile) {
     width: 75%;
   }
+  @media (min-width: $pc) {
+    width: 65%;
+  }
+}
+button {
+  cursor: pointer;
 }
 .primary-button {
   margin: 10px 0;

@@ -25,7 +25,6 @@ function App() {
           <Route path="/" element={<LandPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signin" element={<RegisterForm />} />
-          <Route path="/register-user" element={<RegisterForm />} />
           <Route path="/business" element={<LandingShop />} />
           <Route path="/business-managment" element={<BusinessManagment />} />
           <Route path="/confirmed-order" element={<ConfirmedOrder />} />
