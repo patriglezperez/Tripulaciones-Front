@@ -18,7 +18,7 @@ export const ShopProvider = ({ children }) => {
 
   //Update the cart in localStorage
   useEffect(() => {
-    if (cart.length > 0) {
+    if (cart?.length > 0) {
       localStorage.setItem("cart", JSON.stringify(cart));
     }
   }, [cart]);
@@ -34,7 +34,7 @@ export const ShopProvider = ({ children }) => {
             cartItem.quantity += 1;
           }
           return cartItem;
-        })
+        }),
       );
     } else {
       setCart([...cart, { ...item, quantity: 1 }]);
@@ -51,7 +51,7 @@ export const ShopProvider = ({ children }) => {
             cartItem.quantity -= 1;
           }
           return cartItem;
-        })
+        }),
       );
     } else {
       setCart(cart.filter((cartItem) => cartItem.id !== item.id));
