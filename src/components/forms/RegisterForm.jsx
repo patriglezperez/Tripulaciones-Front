@@ -54,36 +54,38 @@ const RegisterForm = () => {
   } */
 
   return (
-    <form
-      onSubmit={handleSubmit((data) => {
-        //handlePostForm(data)
-        reset();
-      })}
-    >
-      <input
-        type="email"
-        {...register("email")}
-        placeholder="Email"
-        className="input"
-      />
-      {<p>{errors.email?.message}</p>}
-      <input {...register("name")} placeholder="Name" className="input" />
-      {<p>{errors.name?.message}</p>}
-      <input
-        {...register("address1")}
-        placeholder="Address1"
-        className="input"
-      />
-      {<p>{errors.address1?.message}</p>}
-      <input
-        {...register("address2")}
-        placeholder="Address2"
-        className="input"
-      />
-      {<p>{errors.address2?.message}</p>}
-      <input {...register("cp")} placeholder="Cp" className="input" />
-      {<p>{errors.cp?.message}</p>}
-      {/* <select {...register("doctype")} defaultValue="Document type">
+    <div className="container-form container">
+      <h1>registrarse</h1>
+      <form
+        className="form"
+        onSubmit={handleSubmit((data) => {
+          reset();
+        })}
+      >
+        <input
+          type="email"
+          {...register("email")}
+          placeholder="Email"
+          className="input"
+        />
+        {<p>{errors.email?.message}</p>}
+        <input {...register("name")} placeholder="Name" className="input" />
+        {<p>{errors.name?.message}</p>}
+        <input
+          {...register("address1")}
+          placeholder="Address1"
+          className="input"
+        />
+        {<p>{errors.address1?.message}</p>}
+        <input
+          {...register("address2")}
+          placeholder="Address2"
+          className="input"
+        />
+        {<p>{errors.address2?.message}</p>}
+        <input {...register("cp")} placeholder="Cp" className="input" />
+        {<p>{errors.cp?.message}</p>}
+        {/* <select {...register("doctype")} defaultValue="Document type">
 
           <option disabled>Document type</option>
           <option value="id">ID</option>
@@ -92,23 +94,24 @@ const RegisterForm = () => {
         {<p>{errors.doctype?.message}</p>}
         <input {...register("docnum")} placeholder="Document Number" />
         {<p>{errors.docnum?.message}</p>} */}
-      <input
-        type="tel"
-        {...register("tlf")}
-        placeholder="Telephone number"
-        className="input"
-      />
-      {<p>{errors.tlf?.message}</p>}
-      <input
-        type="password"
-        {...register("password")}
-        placeholder="Password"
-        className="input"
-      />
-      {<p>{errors.password?.message}</p>}
+        <input
+          type="tel"
+          {...register("tlf")}
+          placeholder="Telephone number"
+          className="input"
+        />
+        {<p>{errors.tlf?.message}</p>}
+        <input
+          type="password"
+          {...register("password")}
+          placeholder="Password"
+          className="input"
+        />
+        {<p>{errors.password?.message}</p>}
 
-      <button className="primary-button">registrarse</button>
-    </form>
+        <button className="primary-button">registrarse</button>
+      </form>
+    </div>
   );
 };
 export default RegisterForm;
