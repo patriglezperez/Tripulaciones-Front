@@ -3,13 +3,12 @@ import ProgressCircle from "./progressiveCircle/ProgressCircle";
 import iconTree from "../../../assets/img/iconTree.svg";
 
 const userTemplate = {
-  point: 150,
+  point: 250,
 };
 
 const ResumenCard = () => {
   const { login, loginWithGoogle, user, signout, headerToken } = useAuth();
-  const time = 400;
-  const pointLap = 100;
+
   const tree = userTemplate.point / 100;
 
   return (
@@ -22,11 +21,7 @@ const ResumenCard = () => {
           <span>x {Math.trunc(tree)}</span>
         </div>
       </div>
-      <ProgressCircle
-        point={userTemplate.point}
-        pointLap={pointLap}
-        time={time}
-      />
+      <ProgressCircle point={userTemplate.point} pointLap={100} time={400} />
     </div>
   );
 };

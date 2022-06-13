@@ -19,7 +19,7 @@ const ResumenUser = () => {
             </button>
             <button
               className="secondary-button"
-              onClick={() => navigate("singin")}
+              onClick={() => navigate("signin")}
             >
               registrarse
             </button>

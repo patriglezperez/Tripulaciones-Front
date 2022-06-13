@@ -11,28 +11,36 @@
   display: flex;
   gap: 32px;
   align-items: center;
+  justify-content: center;
   @media (min-width: $mobile) {
+    width: 70%;
+  }
+  @media (min-width: $pc) {
     width: 90%;
+  }
+  @media (min-width: 1600px) {
+    width: 70%;
   }
   .info-card {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    align-items: flex-start;
     height: 100%;
     width: 60%;
+    @media (min-width: $mobile) {
+      width: 55%;
+    }
     p {
       color: $secondaryColor;
       font-size: 16px;
       text-transform: uppercase;
-      @media (min-width: $mobile) {
-        font-size: 20px;
-      }
     }
   }
 }
 .container-tree {
   display: flex;
-  justify-content: space-between;
+
   align-items: baseline;
 }
 .container-circle {
