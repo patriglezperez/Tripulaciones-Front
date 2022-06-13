@@ -11,7 +11,11 @@ function OrderDetails(props) {
         <p className="orderDetails--light">{props.orderDate}</p>
       </div>
 
-      <ArrowForwardIosIcon fontSize="small" color="secondary" />
+      <ArrowForwardIosIcon
+        fontSize="small"
+        color="secondary"
+        className="order--arrow"
+      />
     </div>
   );
 }

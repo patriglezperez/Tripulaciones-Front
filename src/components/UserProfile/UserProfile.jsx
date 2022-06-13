@@ -3,6 +3,8 @@ import EditIcon from "@mui/icons-material/Edit";
 import CheckIcon from "@mui/icons-material/Check";
 import { useState } from "react";
 import OrderDetails from "./OrderDetails/OrderDetails";
+import ResumenUser from "../landpage/resumenUser";
+
 const client = {
   uuid_client: 0,
   client_name: "Laura",
@@ -124,17 +126,11 @@ function UserProfile() {
         )}
 
         {/* Green Points */}
-        <div className="userProfile--user--info">
-          <h3>INFORMACIÓN DE LOS PUNTOS</h3>
-          <div className="userProfile--editable">
-            <p className="userProfile--titles">Green Points:</p>
-            <p>{client.green_dots} puntos</p>
-          </div>
-        </div>
+        <ResumenUser />
 
         {/* Orders */}
         <div className="userProfile--user--info">
-          <h3>MIS COMPRAS</h3>
+          <h3 className="userProfile--space">MIS COMPRAS</h3>
           <div className="userProfile--orders">
             {client.orders === 0 ? (
               <OrderDetails />
