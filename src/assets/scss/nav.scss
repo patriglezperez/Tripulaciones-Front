@@ -1,14 +1,22 @@
-@media (min-width: $mobile) {
-  .nav-container {
-    display: flex;
+.nav-container {
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  .nav-item {
+    text-transform: capitalize;
+    cursor: pointer;
+  }
+  @media (min-width: $mobile) {
+    margin-top: 0;
+    flex-direction: row;
     justify-content: space-between;
     height: -webkit-fit-content;
     height: -moz-fit-content;
     height: fit-content;
     .nav-item {
       color: #fff;
-      text-transform: capitalize;
-      cursor: pointer;
     }
   }
 }

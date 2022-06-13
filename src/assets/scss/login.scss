@@ -1,11 +1,10 @@
-.login {
+.container-form {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 2rem;
-  justify-content: center;
-  margin-top: 40px;
-  width: 40%;
+  gap: 48px;
+  margin-top: 50px;
+  margin-bottom: 80px;
+
   h1 {
     color: #515151;
   }
@@ -13,17 +12,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
-    text-align: center;
+    gap: 14px;
   }
-  .input {
-    margin-bottom: 20px;
-  }
+
   .divider {
     font-size: 20px;
     text-align: center;
     position: relative;
     color: rgb(126 126 126);
+    z-index: -100;
     &::after {
       position: absolute;
       content: "";
@@ -59,5 +56,6 @@
   margin: 0 auto;
   img {
     height: 32px;
+    margin-right: 4px;
   }
 }
