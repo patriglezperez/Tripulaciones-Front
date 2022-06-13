@@ -1,0 +1,28 @@
+.contactShop {
+  display: flex;
+  justify-content: center;
+}
+
+.contactShop--container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 20px;
+  justify-content: space-around;
+  text-align: center;
+
+  @media (max-width: 768px) {
+    width: 90%;
+    flex-wrap: wrap;
+  }
+  @media (max-width: 1024px) {
+    width: 100%;
+  }
+  @media (min-width: 1024px) {
+    width: 95%;
+    max-width: 1500px;
+  }
+  .contactShop--icons {
+    height: 5rem;
+  }
+}

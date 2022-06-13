@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { AuthProvider } from "./context/authContext";
+import { ShopProvider } from "./context/shopContext";
 import * as Sentry from "@sentry/react";
 import { BrowserTracing, Integrations } from "@sentry/tracing";
 import './styles.scss';
@@ -23,7 +24,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
     <AuthProvider>
+      <ShopProvider>
       <App />
+      </ShopProvider>
     </AuthProvider>
   </React.StrictMode>
 );

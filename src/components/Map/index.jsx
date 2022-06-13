@@ -23,7 +23,6 @@ export default function Map({
   const dragEnd = async (e) => {
     const data = await getAddress(e.target._lngLat);
   };
-
   //Update map type
   useEffect(() => {
     setMapType(type);
@@ -58,6 +57,7 @@ export default function Map({
       center: [lng, lat],
       zoom: zoom,
     });
+    console.log(map, "userPosition here");
     //Adding geolocalitation controller.
     map.current.addControl(
       new mapboxgl.GeolocateControl({
@@ -68,7 +68,7 @@ export default function Map({
         trackUserLocation: true,
         // Draw an arrow next to the location dot to indicate which direction the device is heading.
         showUserHeading: true,
-      }),
+      })
     );
 
     if (changePlace) {
@@ -114,9 +114,12 @@ export default function Map({
         ref.current = document.createElement("div");
         const root = createRoot(ref.current);
         root.render(<Marker onClick={markerClicked}></Marker>);
-        new mapboxgl.Marker(ref.current)
+        new mapboxgl.Marker(ref.current);
+        console
+          .log(ref.current, "current")
           .setLngLat(features[0].coordinates)
           .addTo(map.current);
+        console.log(features, "features2");
         map.current.fitBounds([features[0].coordinates], {
           padding: 20,
         });
