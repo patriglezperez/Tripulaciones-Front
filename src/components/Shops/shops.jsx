@@ -2,6 +2,7 @@ import Prueba from "../../assets/img/tienda.webp";
 import StarIcon from "@mui/icons-material/Star";
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import { useNavigate } from "react-router-dom";
+import iconBack from "../../assets/img/iconBack.svg";
 
 const typeProduct = [
   {
@@ -88,60 +89,51 @@ function Shops() {
   ///
 
   return (
-    <div>
-      <ArrowBackIosIcon
-        fontSize="large"
-        className="shop--arrow--back"
-        color="primary"
-        onClick={() => {
-          navigate("/");
-        }}
-      />
-      <div className="shop--container">
-        <h2 className="shop--type">{typeProduct[1].name}</h2>
-
-        {store.map((shop) => (
-          <div
-            className="shop"
-            key={shop.id}
-            onClick={() => navigate(`/business/${id}`, { state: { id: id } })}
-          >
-            <div>
+    <div className="container-business container">
+      <img onClick={() => navigate("/")} src={iconBack}></img>
+      <div className="shops">
+        <h1>{typeProduct[1].name}</h1>
+        <div className="shops--container">
+          {store.map((shop) => (
+            <div
+              className="shop"
+              key={shop.id}
+              onClick={() => navigate(`/business/${id}`, { state: { id: id } })}
+            >
               <img className="shop--image" alt="images" src={shop.img} />
-            </div>
-            <div className="shop--details">
-              <p>
-                <b>{shop.name}</b>
-              </p>
-              <div class="shop--valoration">
-                {/* Star 1 */}
-                <button>
-                  <StarIcon />
-                </button>
 
-                {/* Star 2 */}
-                <button>
-                  <StarIcon />
-                </button>
+              <div className="shop--details">
+                <p>{shop.name}</p>
+                <div class="shop--valoration">
+                  {/* Star 1 */}
+                  <button>
+                    <StarIcon />
+                  </button>
 
-                {/* Star 3 */}
-                <button>
-                  <StarIcon />
-                </button>
+                  {/* Star 2 */}
+                  <button>
+                    <StarIcon />
+                  </button>
 
-                {/* Star 4 */}
-                <button>
-                  <StarIcon />
-                </button>
+                  {/* Star 3 */}
+                  <button>
+                    <StarIcon />
+                  </button>
 
-                {/* Star 5 */}
-                <button>
-                  <StarIcon />
-                </button>
+                  {/* Star 4 */}
+                  <button>
+                    <StarIcon />
+                  </button>
+
+                  {/* Star 5 */}
+                  <button>
+                    <StarIcon />
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
 
         {/* Go to top button */}
         <button className="myBtn" onClick={topFunction}>

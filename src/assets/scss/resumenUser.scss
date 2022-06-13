@@ -2,13 +2,13 @@
   margin: 30px auto 0 auto;
 
   @media (min-width: $mobile) {
-    width: 90%;
+    width: 75%;
     margin: 0 auto;
     margin-top: 50px;
   }
 
   @media (min-width: $pc) {
-    width: 50%;
+    width: 55%;
   }
 }
 .resumen-user {

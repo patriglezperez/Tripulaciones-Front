@@ -6,8 +6,12 @@ const Nav = () => {
   return (
     <>
       <div className="nav-container">
-        <p className="nav-item">inicio</p>
-        <p className="nav-item">tiendas</p>
+        <p className="nav-item" onClick={() => navigate("/")}>
+          inicio
+        </p>
+        <p className="nav-item" onClick={() => navigate("/business/type")}>
+          tiendas
+        </p>
         <p className="nav-item">perfil</p>
         <p className="nav-item">carrito</p>
       </div>

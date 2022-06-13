@@ -16,9 +16,10 @@ h1 {
   font-weight: 900;
   text-align: center;
   text-transform: uppercase;
+  color: $textColor;
 }
 h2 {
-  font-size: 26px;
+  font-size: 32px;
   color: $primaryColor;
   text-transform: uppercase;
 }
@@ -33,7 +34,7 @@ p {
     width: 75%;
   }
   @media (min-width: $pc) {
-    width: 65%;
+    width: 60%;
   }
 }
 button {
