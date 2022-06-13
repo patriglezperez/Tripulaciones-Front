@@ -35,7 +35,6 @@
 }
 
 .businessPersonalProfile--titles {
-  font-weight: bold;
   color: $secondaryColor;
 }
 
@@ -46,6 +45,10 @@
   align-items: center;
   margin: 10px;
   text-align: justify;
+
+  @media (min-width: 768px) {
+    width: 60%;
+  }
 
   p {
     margin: 10px;
