@@ -2,7 +2,7 @@ import UserImage from "../../assets/img/userImage.jpg";
 import EditIcon from "@mui/icons-material/Edit";
 import CheckIcon from "@mui/icons-material/Check";
 import { useState } from "react";
-
+import OrderDetails from "./OrderDetails/OrderDetails";
 const client = {
   uuid_client: 0,
   client_name: "Laura",
@@ -11,6 +11,23 @@ const client = {
   green_dots: 8,
   modification_date: "10 de Mayo",
   discharge_date: "14.02.2022",
+  orders: [
+    {
+      order_date: "12/05/2022",
+      store_name: "Frutas y verduras",
+      id: 1,
+    },
+    {
+      order_date: "18/05/2022",
+      store_name: "La tienda de Paco",
+      id: 2,
+    },
+    {
+      order_date: "25/05/2022",
+      store_name: "La rienda de mi prima",
+      id: 3,
+    },
+  ],
 };
 
 function UserProfile() {
@@ -112,6 +129,24 @@ function UserProfile() {
           <div className="userProfile--editable">
             <p className="userProfile--titles">Green Points:</p>
             <p>{client.green_dots} puntos</p>
+          </div>
+        </div>
+
+        {/* Orders */}
+        <div className="userProfile--user--info">
+          <h3>MIS COMPRAS</h3>
+          <div className="userProfile--orders">
+            {client.orders === 0 ? (
+              <OrderDetails />
+            ) : (
+              client.orders.map((order) => (
+                <OrderDetails
+                  key={`order${order.id}`}
+                  orderName={order.store_name}
+                  orderDate={order.order_date}
+                />
+              ))
+            )}
           </div>
         </div>
       </div>

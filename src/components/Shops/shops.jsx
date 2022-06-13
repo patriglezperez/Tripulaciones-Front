@@ -115,27 +115,27 @@ function Shops() {
               </p>
               <div class="shop--valoration">
                 {/* Star 1 */}
-                <button>
+                <button className="star">
                   <StarIcon />
                 </button>
 
                 {/* Star 2 */}
-                <button>
+                <button className="star">
                   <StarIcon />
                 </button>
 
                 {/* Star 3 */}
-                <button>
+                <button className="star">
                   <StarIcon />
                 </button>
 
                 {/* Star 4 */}
-                <button>
+                <button className="star">
                   <StarIcon />
                 </button>
 
                 {/* Star 5 */}
-                <button>
+                <button className="star">
                   <StarIcon />
                 </button>
               </div>

@@ -77,3 +77,9 @@ input {
   font-style: italic;
   background-color: #efefef;
 }
+
+//orders
+.userProfile--orders {
+  display: flex;
+  flex-direction: column;
+}

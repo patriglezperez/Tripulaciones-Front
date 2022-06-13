@@ -64,28 +64,28 @@
   color: #5f5050;
   transition: 1s all;
 }
-.shop--valoration button:hover {
+.shop--valoration .star:hover {
   cursor: pointer;
   color: #ff9700;
   transform: rotate(360deg);
 }
-button:nth-child(1):hover ~ button {
+button:nth-child(1):hover ~ .star {
   color: #ff9700;
   transform: rotate(360deg);
 }
-button:nth-child(2):hover ~ button {
+.star:nth-child(2):hover ~ .star {
   color: #ff9700;
   transform: rotate(360deg);
 }
-button:nth-child(3):hover ~ button {
+.star:nth-child(3):hover ~ .star {
   color: #ff9700;
   transform: rotate(360deg);
 }
-button:nth-child(4):hover ~ button {
+.star:nth-child(4):hover ~ .star {
   color: #ff9700;
   transform: rotate(360deg);
 }
-button:nth-child(5):hover ~ button {
+.star:nth-child(5):hover ~ .star {
   color: #ff9700;
   transform: rotate(360deg);
 }
