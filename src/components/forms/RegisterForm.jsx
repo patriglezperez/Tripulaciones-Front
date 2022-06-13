@@ -59,7 +59,6 @@ const RegisterForm = () => {
       <form
         className="form"
         onSubmit={handleSubmit((data) => {
-          //handlePostForm(data)
           reset();
         })}
       >

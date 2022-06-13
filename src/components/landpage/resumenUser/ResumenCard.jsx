@@ -1,30 +1,32 @@
-import React from "react";
+import { useAuth } from "../../../context/authContext";
+import ProgressCircle from "./progressiveCircle/ProgressCircle";
+import iconTree from "../../../assets/img/iconTree.svg";
 
-const user = {
-  name: "paco",
-  lastName: "martinez",
-  point: 200,
+const userTemplate = {
+  point: 150,
 };
-// const hola = 32;
-// export { hola };
+
 const ResumenCard = () => {
+  const { login, loginWithGoogle, user, signout, headerToken } = useAuth();
+  const time = 400;
+  const pointLap = 100;
+  const tree = userTemplate.point / 100;
+
   return (
     <div className="resumen-card-container container">
-      <h2>
-        {user.name} {user.lastName}
-      </h2>
-      <div class="circular">
-        <div class="inner"></div>
-        <div class="number">100%</div>
-        <div class="circle">
-          <div class="bar left">
-            <div class="progress"></div>
-          </div>
-          <div class="bar right">
-            <div class="progress"></div>
-          </div>
+      <div className="info-card">
+        <h2>{user.displayName}</h2>
+        <div className="container-tree">
+          <p>haz sembrado</p>
+          <img src={iconTree}></img>
+          <span>x {Math.trunc(tree)}</span>
         </div>
       </div>
+      <ProgressCircle
+        point={userTemplate.point}
+        pointLap={pointLap}
+        time={time}
+      />
     </div>
   );
 };
