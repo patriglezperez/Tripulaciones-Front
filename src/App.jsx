@@ -32,7 +32,7 @@ function App() {
           <Route path="/register-business" element={<RegisterBusinessForm />} />
           <Route path="/business/type" element={<Shops />} />
           <Route path="/ecommerce" element={<Ecommerce />} />
-          <Route path="*" element={<Error error={error} error404={error} />} />
+          <Route path="*" element={<Error error={error} />} />
         </Routes>
       </BrowserRouter>
     </div>
