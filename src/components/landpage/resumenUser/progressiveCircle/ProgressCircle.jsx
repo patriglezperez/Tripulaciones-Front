@@ -6,13 +6,12 @@ const ProgressCircle = ({ point, pointLap, time }) => {
   const leftCircle = useRef();
 
   useEffect(() => {
-    const timeInterval = time / point;
+    const timeInterval = 300 / point;
 
     const intervalPoint = setInterval(() => {
       if (count < point) {
         setCount((prevCount) => prevCount + 1);
       }
-      return;
     }, timeInterval);
 
     return () => clearInterval(intervalPoint);
@@ -20,10 +19,8 @@ const ProgressCircle = ({ point, pointLap, time }) => {
 
   const animateCircle = () => {
     let degress = (point % pointLap) * 3.6;
-    if (degress === 0) {
-      degress = 360;
-    }
 
+    console.log(degress, "grados");
     if (degress <= 180) {
       rightCircle.current.animate(
         [{ transform: `rotate(calc(${degress}deg - 180deg))` }],
@@ -41,7 +38,7 @@ const ProgressCircle = ({ point, pointLap, time }) => {
       });
 
       leftCircle.current.animate(
-        [{ transform: `rotate(calc((${degress}deg / 2) - 180deg))` }],
+        [{ transform: `rotate(calc(${degress}deg  - 360deg))` }],
         {
           duration: time,
           easing: "linear",
