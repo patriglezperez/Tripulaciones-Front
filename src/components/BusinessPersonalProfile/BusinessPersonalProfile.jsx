@@ -45,29 +45,56 @@ function BusinessPersonalProfile() {
   }
 
   //Editable information
-  function EditableInfo(event) {
-    //Edit the name
+  //Edit the name
+  function NameChange(event) {
     const newName = event.target.value;
     setName(newName);
-    //Edit the last name
+  }
+
+  //Edit the last name
+  function LastNameChange(event) {
     const newLastName = event.target.value;
     setLastName(newLastName);
-    //Edit the name of the business
+  }
+
+  //Edit the name of the business
+  function BusinessNameChange(event) {
     const newStoreName = event.target.value;
     setStoreName(newStoreName);
-    //Edit the description of the business
+  }
+
+  //Edit the description of the business
+  function BusinessDescriptionChange(event) {
     const newDescription = event.target.value;
     setDescription(newDescription);
-    //Edit the description of the owner of the business
+  }
+
+  //Edit the description of the owner of the business
+  function PersonalDescriptionChange(event) {
     const newOwnerDescription = event.target.value;
     setOwnerDescription(newOwnerDescription);
-    //Edit the phone number of the business
+  }
+
+  //Edit the image of the business
+  function BusinessImageChange(event) {
+    const newImageStore = event.target.value;
+    setImageStore(newImageStore);
+  }
+
+  //Edit the phone number of the business
+  function PhoneChange(event) {
     const newPhoneNumber = event.target.value;
     setStorePhone(newPhoneNumber);
-    //Edit the email of the business
+  }
+
+  //Edit the email of the business
+  function EmailChange(event) {
     const newEmail = event.target.value;
     setStoreEmail(newEmail);
-    //Edit the address of the business
+  }
+
+  //Edit the address of the business
+  function AdressChange(event) {
     const newAdress = event.target.value;
     setStoreAddress(newAdress);
   }
@@ -80,6 +107,7 @@ function BusinessPersonalProfile() {
             src={BusinessImage}
             alt="business"
             className="businessPersonalProfile--img"
+            id="myBusinessImage"
           />
           <p className="businessPersonalProfile--email">{store.owner_email}</p>
         </div>
@@ -102,15 +130,15 @@ function BusinessPersonalProfile() {
                 type={"text"}
                 className="businessPersonalProfile--name"
                 value={name}
-                onChange={EditableInfo}
+                onChange={NameChange}
               />
             </div>
             <div className="businessPersonalProfile--editable">
               <p className="businessPersonalProfile--titles">Apellido:</p>
               <input
                 type={"text"}
-                className="businessPersonalProfile--lastName"
-                onChange={EditableInfo}
+                className="businessPersonalProfile--content"
+                onChange={LastNameChange}
                 value={lastName}
               />
             </div>
@@ -120,8 +148,8 @@ function BusinessPersonalProfile() {
               </p>
               <input
                 type={"text"}
-                className="businessPersonalProfile--lastName"
-                onChange={EditableInfo}
+                className="businessPersonalProfile--content"
+                onChange={BusinessNameChange}
                 value={storeName}
               />
             </div>
@@ -131,8 +159,8 @@ function BusinessPersonalProfile() {
               </p>
               <input
                 type={"text"}
-                className="businessPersonalProfile--lastName"
-                onChange={EditableInfo}
+                className="businessPersonalProfile--content"
+                onChange={BusinessDescriptionChange}
                 value={description}
               />
             </div>
@@ -142,8 +170,8 @@ function BusinessPersonalProfile() {
               </p>
               <input
                 type={"text"}
-                className="businessPersonalProfile--lastName"
-                onChange={EditableInfo}
+                className="businessPersonalProfile--content"
+                onChange={PersonalDescriptionChange}
                 value={ownerDescription}
               />
             </div>
@@ -151,13 +179,13 @@ function BusinessPersonalProfile() {
               <p className="businessPersonalProfile--titles">
                 Imagen del negocio:
               </p>
-              {/* /////////imagen/////////// */}
               <input
-                type={"text"}
-                className="businessPersonalProfile--lastName"
-                onChange={EditableInfo}
-                value={description}
+                type={"button"}
+                className="businessPersonalProfile--content"
+                onChange={BusinessImageChange}
+                value={imageStore}
               />
+              <p>{imageStore}</p>
             </div>
             <div className="businessPersonalProfile--editable">
               <p className="businessPersonalProfile--titles">
@@ -165,8 +193,8 @@ function BusinessPersonalProfile() {
               </p>
               <input
                 type={"text"}
-                className="businessPersonalProfile--lastName"
-                onChange={EditableInfo}
+                className="businessPersonalProfile--content"
+                onChange={PhoneChange}
                 value={storePhone}
               />
             </div>
@@ -176,8 +204,8 @@ function BusinessPersonalProfile() {
               </p>
               <input
                 type={"text"}
-                className="businessPersonalProfile--lastName"
-                onChange={EditableInfo}
+                className="businessPersonalProfile--content"
+                onChange={EmailChange}
                 value={storeEmail}
               />
             </div>
@@ -188,8 +216,8 @@ function BusinessPersonalProfile() {
               {/* ///////////Direccion */}
               <input
                 type={"text"}
-                className="businessPersonalProfile--lastName"
-                onChange={EditableInfo}
+                className="businessPersonalProfile--content"
+                onChange={AdressChange}
                 value={storeAddress}
               />
             </div>
@@ -216,7 +244,7 @@ function BusinessPersonalProfile() {
 
             <div className="businessPersonalProfile--editable">
               <p className="businessPersonalProfile--titles">Apellido:</p>
-              <p className="businessPersonalProfile--lastName">{lastName}</p>
+              <p className="businessPersonalProfile--content">{lastName}</p>
             </div>
 
             <div className="businessPersonalProfile--editable">
@@ -237,7 +265,9 @@ function BusinessPersonalProfile() {
               <p className="businessPersonalProfile--titles">
                 Descripción del propietario:
               </p>
-              <p className="businessPersonalProfile--lastName">{description}</p>
+              <p className="businessPersonalProfile--lastName">
+                {ownerDescription}
+              </p>
             </div>
 
             {/* Cambiar la foto */}
@@ -245,7 +275,7 @@ function BusinessPersonalProfile() {
               <p className="businessPersonalProfile--titles">
                 Imagen del negocio:
               </p>
-              <p className="businessPersonalProfile--lastName">{storePhone}</p>
+              <p className="businessPersonalProfile--lastName">{imageStore}</p>
             </div>
 
             <div className="businessPersonalProfile--editable">
@@ -259,7 +289,7 @@ function BusinessPersonalProfile() {
               <p className="businessPersonalProfile--titles">
                 Email del negocio:
               </p>
-              <p className="businessPersonalProfile--lastName">{storeEmail}</p>
+              <p className="businessPersonalProfile--content">{storeEmail}</p>
             </div>
 
             {/* Cambiar direccion */}
@@ -267,9 +297,7 @@ function BusinessPersonalProfile() {
               <p className="businessPersonalProfile--titles">
                 Dirección del negocio:
               </p>
-              <p className="businessPersonalProfile--lastName">
-                {storeAddress}
-              </p>
+              <p className="businessPersonalProfile--content">{storeAddress}</p>
             </div>
 
             <div className="businessPersonalProfile--editable">
