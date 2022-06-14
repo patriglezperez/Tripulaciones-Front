@@ -1,0 +1,89 @@
+.userProfile--data {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.userProfile--top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+
+  p {
+    margin-top: 10px;
+  }
+}
+.userProfile--img {
+  height: 150px;
+  width: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border-style: solid;
+  border-color: white;
+  border-width: 6px;
+}
+
+.userProfile--email {
+  font-weight: bolder;
+  color: $primaryColor;
+  letter-spacing: 5px;
+}
+
+.userProfile--titles {
+  font-weight: normal;
+  color: $secondaryColor;
+}
+
+.userProfile--user--info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+
+  p {
+    margin: 10px;
+  }
+
+  .userProfile--icon {
+    margin: 10px;
+  }
+}
+
+.userProfile--btn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  justify-items: center;
+}
+
+//editable
+.userProfile--editable {
+  justify-items: left;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+input {
+  margin: none;
+  border: none;
+  font-style: italic;
+  background-color: #efefef;
+}
+
+//orders
+.userProfile--orders {
+  display: flex;
+  flex-direction: column;
+}
+
+.userProfile--space {
+  margin-top: 40px;
+}
