@@ -1,6 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useAuth } from "../../context/authContext";
+import postClient from "../../utils/connections/postClient";
 import * as yup from "yup";
 const emailRegex =
   /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -46,19 +48,30 @@ const RegisterForm = () => {
     reset,
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
+  const { signup, updatename } = useAuth();
 
+  const submitData = async (data) => {
+    //User created in Firebase
+    const userCreation = await signup(data.email, data.password);
+    //We modify displayName to owner_name + owner_last_name
+    await updatename(userCreation.user, data.name, "");
+    //We create the business object
+    const client = {
+      uuid_client: userCreation.user.uid,
+      ...data,
+      password: null,
+    };
+    const response = await postClient(client);
+    console.log(client);
+    reset();
+  };
   //It will post the form data to the backend using a helper
   /* const handlePostForm = async(data) => {
     postUser(data, jwt);
   } */
 
   return (
-    <form
-      onSubmit={handleSubmit((data) => {
-        //handlePostForm(data)
-        reset();
-      })}
-    >
+    <form onSubmit={handleSubmit(submitData)}>
       <input type="email" {...register("email")} placeholder="Email" />
       {<p>{errors.email?.message}</p>}
       <input {...register("name")} placeholder="Name" />
@@ -93,7 +106,6 @@ const RegisterForm = () => {
       />
       {<p>{errors.password?.message}</p>}
 
-      <button>Submit</button>
       <button className="primary-button">registrarse</button>
     </form>
   );

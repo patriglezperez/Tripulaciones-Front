@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { DatePicker } from "../DatePicker";
+import DatePicker from "../DatePicker";
 
 export const MakeOrder = () => {
   const [value, setValue] = useState();
@@ -8,6 +8,13 @@ export const MakeOrder = () => {
   function dataFromChild(date) {
     setValue(date);
   }
+  console.log(value);
 
-  return <DatePicker dataFromChild={dataFromChild} />;
+  return (
+    <div className="make-order">
+      <DatePicker dataFromChild={dataFromChild} />
+
+      <button>Submit</button>
+    </div>
+  );
 };

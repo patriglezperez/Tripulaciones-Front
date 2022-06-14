@@ -11,6 +11,7 @@ import NavBar from "./components/navbar/NavBar";
 import Login from "./components/Login";
 import Shops from "./components/Shops/shops";
 import Ecommerce from "./components/Ecommerce";
+import { MakeOrder } from "./components/Orders/MakeOrder";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../src/utils/theme/themeConfig";
 
@@ -31,6 +32,7 @@ function App() {
           <Route path="/register-business" element={<RegisterBusinessForm />} />
           <Route path="/business/type" element={<Shops />} />
           <Route path="/ecommerce" element={<Ecommerce />} />
+          <Route path="/calendar" element={<MakeOrder />} />
           <Route path="*" element={<Error error={error} />} />
         </Routes>
       </BrowserRouter>
