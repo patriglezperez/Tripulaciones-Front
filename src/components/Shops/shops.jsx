@@ -1,7 +1,6 @@
 import Prueba from "../../assets/img/tienda.webp";
 import StarIcon from "@mui/icons-material/Star";
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import iconBack from "../../assets/img/iconBack.svg";
 
 const typeProduct = [
@@ -18,6 +17,7 @@ const typeProduct = [
     id: 7,
   },
 ];
+
 const store = [
   {
     name: "La tienda de siempre",
@@ -60,8 +60,8 @@ const store = [
 function Shops() {
   const navigate = useNavigate();
   const id = store.uuid_store;
-
-  ///Go to the top
+  const location = useLocation().state;
+  console.log(location);
 
   // When the user clicks on the button, scroll to the top of the document
   function topFunction() {
@@ -73,13 +73,15 @@ function Shops() {
     <div className="container-business container">
       <img onClick={() => navigate("/")} src={iconBack} alt="back" />
       <div className="shops">
-        <h1>{typeProduct[1].name}</h1>
+        <h1>{location.type}</h1>
         <div className="shops--container">
           {store.map((shop) => (
             <div
               className="shop"
               key={shop.id}
-              onClick={() => navigate(`/business/${id}`, { state: { id: id } })}
+              onClick={() =>
+                navigate(`/business/type/${id}`, { state: { id: id } })
+              }
             >
               <img className="shop--image" alt="images" src={shop.img} />
 
