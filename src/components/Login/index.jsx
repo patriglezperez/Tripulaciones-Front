@@ -23,7 +23,6 @@ export default function Login() {
           ...token,
         },
       });
-      console.log(res.data);
     } catch (err) {
       console.log(err);
     }

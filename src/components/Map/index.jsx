@@ -57,7 +57,7 @@ export default function Map({
       center: [lng, lat],
       zoom: zoom,
     });
-    console.log(map, "userPosition here");
+
     //Adding geolocalitation controller.
     map.current.addControl(
       new mapboxgl.GeolocateControl({

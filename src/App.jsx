@@ -29,14 +29,16 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signin" element={<RegisterForm />} />
             <Route path="/register-user" element={<RegisterForm />} />
-            <Route path="/business" element={<LandingShop />} />
-            <Route path="/business-managment" element={<BusinessManagment />} />
+
             <Route path="/confirmed-order" element={<ConfirmedOrder />} />
             <Route
               path="/register-business"
               element={<RegisterBusinessForm />}
             />
-            <Route path="/business/type" element={<Shops />} />
+            {/*Business*/}
+            <Route path="/business-managment" element={<BusinessManagment />} />
+            <Route path="/business/:type" element={<Shops />} />
+            <Route path="/business/type/:id" element={<LandingShop />} />
             <Route
               path="/business/profile"
               element={<BusinessPersonalProfile />}

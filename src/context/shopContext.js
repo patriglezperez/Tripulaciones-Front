@@ -9,7 +9,7 @@ export const ShopProvider = ({ children }) => {
   //Check if we have a cart stored in localStorage
   useEffect(() => {
     const storedCart = localStorage.getItem("cart");
-    console.log(storedCart);
+
     if (storedCart) {
       setCart(JSON.parse(storedCart));
     } else {
@@ -34,7 +34,7 @@ export const ShopProvider = ({ children }) => {
             cartItem.quantity += 1;
           }
           return cartItem;
-        }),
+        })
       );
     } else {
       setCart([...cart, { ...item, quantity: 1 }]);
@@ -51,7 +51,7 @@ export const ShopProvider = ({ children }) => {
             cartItem.quantity -= 1;
           }
           return cartItem;
-        }),
+        })
       );
     } else {
       setCart(cart.filter((cartItem) => cartItem.id !== item.id));

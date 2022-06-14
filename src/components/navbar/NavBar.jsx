@@ -20,7 +20,7 @@ const NavBar = () => {
   useEffect(() => {
     window.addEventListener("resize", handleResize);
   }, []);
-  console.log(width);
+
   return (
     <>
       <div className="nav-bar">
