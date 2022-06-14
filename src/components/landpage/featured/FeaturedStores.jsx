@@ -55,7 +55,7 @@ const FeaturedStores = () => {
 
                 <div className="shop--details">
                   <p>{shop.name}</p>
-                  <div class="shop--valoration"></div>
+                  <div className="shop--valoration"></div>
                 </div>
               </div>
             );

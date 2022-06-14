@@ -15,8 +15,8 @@ function Error(props) {
           navigate("/");
         }}
       >
-        <span class="error--btn--textOne">Volver a inicio</span>
-        <span class="error--btn--textTwo">Estupendo!</span>
+        <span className="error--btn--textOne">Volver a inicio</span>
+        <span className="error--btn--textTwo">Estupendo!</span>
       </button>
     </div>
   );

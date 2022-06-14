@@ -59,9 +59,8 @@ const store = [
 
 function Shops() {
   const navigate = useNavigate();
-  const id = store.uuid_store;
+  const store_id = store.id;
   const location = useLocation().state;
-  console.log(location);
 
   // When the user clicks on the button, scroll to the top of the document
   function topFunction() {
@@ -80,7 +79,9 @@ function Shops() {
               className="shop"
               key={shop.id}
               onClick={() =>
-                navigate(`/business/type/${id}`, { state: { id: id } })
+                navigate(`/business/type/${store_id}`, {
+                  state: { id: store_id },
+                })
               }
             >
               <img className="shop--image" alt="images" src={shop.img} />
