@@ -11,6 +11,7 @@ import NavBar from "./components/NavBar/NavBar";
 import Login from "./components/Login";
 import Shops from "./components/Shops/shops";
 import Ecommerce from "./components/Ecommerce";
+import BusinessPersonalProfile from "./components/BusinessPersonalProfile/BusinessPersonalProfile";
 import UserProfile from "./components/UserProfile/UserProfile";
 import { ThemeProvider } from "@mui/material/styles";
 import theme from "../src/utils/theme/themeConfig";
@@ -36,6 +37,10 @@ function App() {
               element={<RegisterBusinessForm />}
             />
             <Route path="/business/type" element={<Shops />} />
+            <Route
+              path="/business/profile"
+              element={<BusinessPersonalProfile />}
+            />
             <Route path="/ecommerce" element={<Ecommerce />} />
             <Route path="/profile" element={<UserProfile />} />
             <Route path="*" element={<Error error={error} />} />

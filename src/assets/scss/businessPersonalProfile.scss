@@ -35,7 +35,6 @@
 }
 
 .businessPersonalProfile--titles {
-  font-weight: bold;
   color: $secondaryColor;
 }
 
@@ -45,8 +44,11 @@
   justify-content: center;
   align-items: center;
   margin: 10px;
-  margin-top: 30px;
   text-align: justify;
+
+  @media (min-width: 768px) {
+    width: 60%;
+  }
 
   p {
     margin: 10px;
@@ -67,10 +69,7 @@
 
 //editable
 .businessPersonalProfile--editable {
-  justify-items: left;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
+  justify-items: center;
 }
 
 input {

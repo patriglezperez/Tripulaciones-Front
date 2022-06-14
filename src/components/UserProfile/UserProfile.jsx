@@ -79,7 +79,7 @@ function UserProfile() {
               <p className="userProfile--titles">Nombre:</p>
               <input
                 type={"text"}
-                className="userProfile--name"
+                className="input"
                 value={name}
                 onChange={NameChange}
               />
@@ -88,7 +88,7 @@ function UserProfile() {
               <p className="userProfile--titles">Apellido:</p>
               <input
                 type={"text"}
-                className="userProfile--lastName"
+                className="input"
                 onChange={LastNameChange}
                 value={lastName}
               />
