@@ -1,5 +1,5 @@
 import { useAuth } from "../../context/authContext";
-import NavBar from "../navbar/NavBar";
+import NavBar from "../NavBar/NavBar";
 import ResumenUser from "./resumenUser";
 import ResumenCard from "./resumenUser/ResumenCard";
 import iconBread from "../../assets/img/iconBread.svg";
