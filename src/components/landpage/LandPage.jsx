@@ -6,6 +6,7 @@ import iconBread from "../../assets/img/iconBread.svg";
 import iconFish from "../../assets/img/iconFish.svg";
 import iconMeat from "../../assets/img/iconMeat.svg";
 import iconFruit from "../../assets/img/iconFruit.svg";
+import FeaturedStores from "./featured/FeaturedStores";
 
 const LandPage = () => {
   const { login, loginWithGoogle, user, signout, headerToken } = useAuth();
@@ -34,7 +35,7 @@ const LandPage = () => {
           </button>
         </div>
       </div>
-
+      <FeaturedStores />
       <button className="primary-button" onClick={() => signout()}>
         cerrar sesion
       </button>

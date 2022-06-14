@@ -1,5 +1,9 @@
+.landpage {
+  display: flex;
+  flex-direction: column;
+  gap: 80px;
+}
 .category {
-  margin-top: 40px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
