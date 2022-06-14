@@ -129,7 +129,7 @@ function BusinessPersonalProfile() {
               <p className="businessPersonalProfile--titles">Nombre:</p>
               <input
                 type={"text"}
-                className="businessPersonalProfile--name"
+                className="input"
                 value={name}
                 onChange={NameChange}
               />
@@ -138,7 +138,7 @@ function BusinessPersonalProfile() {
               <p className="businessPersonalProfile--titles">Apellido:</p>
               <input
                 type={"text"}
-                className="businessPersonalProfile--content"
+                className="input"
                 onChange={LastNameChange}
                 value={lastName}
               />
@@ -149,7 +149,7 @@ function BusinessPersonalProfile() {
               </p>
               <input
                 type={"text"}
-                className="businessPersonalProfile--content"
+                className="input"
                 onChange={BusinessNameChange}
                 value={storeName}
               />
@@ -160,7 +160,7 @@ function BusinessPersonalProfile() {
               </p>
               <input
                 type={"text"}
-                className="businessPersonalProfile--content"
+                className="input"
                 onChange={BusinessDescriptionChange}
                 value={description}
               />
@@ -171,7 +171,7 @@ function BusinessPersonalProfile() {
               </p>
               <input
                 type={"text"}
-                className="businessPersonalProfile--content"
+                className="input"
                 onChange={PersonalDescriptionChange}
                 value={ownerDescription}
               />
@@ -183,7 +183,7 @@ function BusinessPersonalProfile() {
               </p>
               <input
                 type={"file"}
-                className="businessPersonalProfile--content"
+                className="input"
                 onChange={BusinessImageChange}
                 value={imageStore}
               />
@@ -195,7 +195,7 @@ function BusinessPersonalProfile() {
               </p>
               <input
                 type={"text"}
-                className="businessPersonalProfile--content"
+                className="input"
                 onChange={PhoneChange}
                 value={storePhone}
               />
@@ -206,7 +206,7 @@ function BusinessPersonalProfile() {
               </p>
               <input
                 type={"text"}
-                className="businessPersonalProfile--content"
+                className="input"
                 onChange={EmailChange}
                 value={storeEmail}
               />
@@ -218,7 +218,7 @@ function BusinessPersonalProfile() {
               {/* OJO CAMBIAR LA DIRECCION */}
               <input
                 type={"text"}
-                className="businessPersonalProfile--content"
+                className="input"
                 onChange={AdressChange}
                 value={storeAddress}
               />

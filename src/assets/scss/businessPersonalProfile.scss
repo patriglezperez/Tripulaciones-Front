@@ -35,10 +35,6 @@
 }
 
 .businessPersonalProfile--titles {
-<<<<<<< HEAD
-=======
-  font-weight: bold;
->>>>>>> f8ef11e50bcf01936e534112e00b85c6416ab0b6
   color: $secondaryColor;
 }
 
@@ -48,18 +44,12 @@
   justify-content: center;
   align-items: center;
   margin: 10px;
-<<<<<<< HEAD
   text-align: justify;
 
   @media (min-width: 768px) {
     width: 60%;
   }
 
-=======
-  margin-top: 30px;
-  text-align: justify;
-
->>>>>>> f8ef11e50bcf01936e534112e00b85c6416ab0b6
   p {
     margin: 10px;
   }
@@ -79,10 +69,7 @@
 
 //editable
 .businessPersonalProfile--editable {
-  justify-items: left;
-  display: flex;
-  flex-direction: row;
-  width: 100%;
+  justify-items: center;
 }
 
 input {
