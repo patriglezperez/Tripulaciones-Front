@@ -17,7 +17,6 @@ import theme from "../src/utils/theme/themeConfig";
 function App() {
   const error = "Error 404. Página no encontrada";
 
-
   return (
     <div>
       <BrowserRouter>
@@ -26,17 +25,13 @@ function App() {
           <Route path="/" element={<LandPage />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signin" element={<RegisterForm />} />
-          <Route path="/register-user" element={<RegisterForm />} />
           <Route path="/business" element={<LandingShop />} />
           <Route path="/business-managment" element={<BusinessManagment />} />
           <Route path="/confirmed-order" element={<ConfirmedOrder />} />
           <Route path="/register-business" element={<RegisterBusinessForm />} />
           <Route path="/business/type" element={<Shops />} />
           <Route path="/ecommerce" element={<Ecommerce />} />
-          <Route
-            path="*"
-            element={<Error error={error} error404={error404} />}
-          />
+          <Route path="*" element={<Error error={error} />} />
         </Routes>
       </BrowserRouter>
     </div>

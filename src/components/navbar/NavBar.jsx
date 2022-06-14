@@ -14,6 +14,7 @@ const NavBar = () => {
 
   const handleResize = () => {
     setWidth(window.innerWidth);
+    setNavOpen(false);
   };
 
   useEffect(() => {
