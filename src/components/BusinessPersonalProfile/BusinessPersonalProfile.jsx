@@ -218,7 +218,7 @@ function BusinessPersonalProfile() {
               {/* OJO CAMBIAR LA DIRECCION */}
               <input
                 type={"text"}
-                className="businessPersonalProfile--content"
+                className="input"
                 onChange={AdressChange}
                 value={storeAddress}
               />
