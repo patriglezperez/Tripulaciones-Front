@@ -85,15 +85,11 @@ export default function RegisterBusinessForm() {
       confirm_password: null,
     };
     const response = await postBusiness(business);
-    console.log(business);
   };
   const openMap = (e) => {
     e.preventDefault();
     setMapModal(!mapModal);
   };
-
-  
- 
 
   return (
     <div className="register-business-container">

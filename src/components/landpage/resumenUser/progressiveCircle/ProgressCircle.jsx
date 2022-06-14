@@ -20,7 +20,6 @@ const ProgressCircle = ({ point, pointLap, time }) => {
   const animateCircle = () => {
     let degress = (point % pointLap) * 3.6;
 
-    console.log(degress, "grados");
     if (degress <= 180) {
       rightCircle.current.animate(
         [{ transform: `rotate(calc(${degress}deg - 180deg))` }],
@@ -28,7 +27,7 @@ const ProgressCircle = ({ point, pointLap, time }) => {
           duration: time,
           easing: "linear",
           fill: "both",
-        },
+        }
       );
     } else if (degress > 180) {
       rightCircle.current.animate([{ transform: `rotate(0deg)` }], {
@@ -44,7 +43,7 @@ const ProgressCircle = ({ point, pointLap, time }) => {
           easing: "linear",
           fill: "both",
           delay: time,
-        },
+        }
       );
     }
   };
