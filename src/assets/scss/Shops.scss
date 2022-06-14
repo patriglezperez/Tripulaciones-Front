@@ -1,52 +1,61 @@
 .shop--arrow--back {
   margin-left: 40px;
 }
-.shop--container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.container-business {
   margin-top: 40px;
-
-  h2 {
-    font-size: 40px;
-    padding-bottom: 20px;
-    text-transform: uppercase;
+}
+.shops {
+  margin-top: 40px;
+  h1 {
+    margin-bottom: 40px;
+  }
+}
+.shops--container {
+  margin-top: 40px;
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  gap: 32px;
+  align-items: center;
+  @media (min-width: $mobile) {
+    grid-template-columns: 1fr 1fr;
   }
 }
 
 .shop {
   box-shadow: 0 12px 30px 0 hsl(0deg 0% 83% / 50%);
-  width: 90%;
-  margin-bottom: 20px;
-
-  @media (min-width: 768px) {
-    width: 50%;
-  }
-  @media (min-width: 1440px) {
-    width: 30%;
-  }
   border: none;
-  border-radius: 24px;
+  border-radius: 15px;
   background-color: #fff;
+  min-height: 300px;
+  @media (min-width: $mobile) {
+    min-height: 400px;
+  }
 }
 
 .shop--image {
-  height: 200px;
+  height: 50%;
   width: 100%;
   overflow: hidden;
-  border-radius: 24px 24px 0 0;
+  border-radius: inherit;
   background-position: 50%;
   background-size: cover;
+  -o-object-fit: cover;
+  object-fit: cover;
 }
 
 .shop--details {
   padding: 1.5rem;
   text-align: center;
-  color: #7ba265;
-  padding-bottom: 10px;
-  font-size: 1.4rem;
-  letter-spacing: 3px;
+  p {
+    color: $textColor;
+    padding-bottom: 10px;
+    font-weight: 600;
+    font-size: 24px;
+    letter-spacing: 4.5%;
+    text-transform: capitalize;
+    text-align: initial;
+  }
 }
 
 .shop--type {
@@ -61,34 +70,34 @@
 .shop--valoration button {
   background-color: initial;
   border: 0;
-  color: #5f5050;
+  color: #8f8f8f;
   transition: 1s all;
 }
-.shop--valoration button:hover {
+.shop--valoration .star:hover {
   cursor: pointer;
   color: #ff9700;
   transform: rotate(360deg);
 }
-// button:nth-child(1):hover ~ button {
-//   color: #ff9700;
-//   transform: rotate(360deg);
-// }
-// button:nth-child(2):hover ~ button {
-//   color: #ff9700;
-//   transform: rotate(360deg);
-// }
-// button:nth-child(3):hover ~ button {
-//   color: #ff9700;
-//   transform: rotate(360deg);
-// }
-// button:nth-child(4):hover ~ button {
-//   color: #ff9700;
-//   transform: rotate(360deg);
-// }
-// button:nth-child(5):hover ~ button {
-//   color: #ff9700;
-//   transform: rotate(360deg);
-// }
+.start:nth-child(1):hover ~ .star {
+  color: #ff9700;
+  transform: rotate(360deg);
+}
+.star:nth-child(2):hover ~ .star {
+  color: #ff9700;
+  transform: rotate(360deg);
+}
+.star:nth-child(3):hover ~ .star {
+  color: #ff9700;
+  transform: rotate(360deg);
+}
+.star:nth-child(4):hover ~ .star {
+  color: #ff9700;
+  transform: rotate(360deg);
+}
+.star:nth-child(5):hover ~ .star {
+  color: #ff9700;
+  transform: rotate(360deg);
+}
 
 //Go to top button
 /* From uiverse.io by @satyamchaudharydev */
@@ -180,4 +189,48 @@
 
 .myBtn:hover svg {
   transform: translateY(-50%) rotate(-90deg);
+}
+.featured {
+  h2 {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+}
+.featured-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  @media (min-width: $mobile) {
+    width: 100%;
+    justify-content: center;
+
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 350px);
+    margin: 0 auto;
+    gap: 20px 20px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "p0 p1"
+      "p0 p2"
+      "p3 p3";
+    .shop {
+      min-height: 350px;
+    }
+    .p0 {
+      grid-area: p0;
+    }
+
+    .p1 {
+      grid-area: p1;
+    }
+
+    .p2 {
+      grid-area: p2;
+    }
+
+    .p3 {
+      grid-area: p3;
+      height: 400px;
+    }
+  }
 }

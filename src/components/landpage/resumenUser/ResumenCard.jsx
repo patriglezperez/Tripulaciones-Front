@@ -8,7 +8,6 @@ const userTemplate = {
 
 const ResumenCard = () => {
   const { login, loginWithGoogle, user, signout, headerToken } = useAuth();
-
   const tree = userTemplate.point / 100;
 
   return (
