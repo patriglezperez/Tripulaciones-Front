@@ -17,7 +17,7 @@ function OwnerProfile() {
           <div className="ownerProfile--description">
             <h2>Conoce a {store.owner_name}</h2>
             <br />
-            <hr class="wave" />
+            <hr className="wave" />
             <br />
             <p>{store.description_store}</p>
           </div>

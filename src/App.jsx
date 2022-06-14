@@ -25,16 +25,20 @@ function App() {
         <BrowserRouter>
           <NavBar />
           <Routes>
+            {/*Login/register*/}
             <Route path="/" element={<LandPage />} />
             <Route path="/login" element={<Login />} />
             <Route path="/signin" element={<RegisterForm />} />
             <Route path="/register-user" element={<RegisterForm />} />
-
-            <Route path="/confirmed-order" element={<ConfirmedOrder />} />
             <Route
               path="/register-business"
               element={<RegisterBusinessForm />}
             />
+            {/*Client*/}
+            <Route path="/ecommerce" element={<Ecommerce />} />
+            <Route path="/profile" element={<UserProfile />} />
+            <Route path="/confirmed-order" element={<ConfirmedOrder />} />
+
             {/*Business*/}
             <Route path="/business-managment" element={<BusinessManagment />} />
             <Route path="/business/:type" element={<Shops />} />
@@ -43,8 +47,7 @@ function App() {
               path="/business/profile"
               element={<BusinessPersonalProfile />}
             />
-            <Route path="/ecommerce" element={<Ecommerce />} />
-            <Route path="/profile" element={<UserProfile />} />
+
             <Route path="*" element={<Error error={error} />} />
           </Routes>
         </BrowserRouter>
