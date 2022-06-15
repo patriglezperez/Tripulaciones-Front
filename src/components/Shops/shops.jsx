@@ -1,65 +1,13 @@
-import Prueba from "../../assets/img/tienda.webp";
+
 import StarIcon from "@mui/icons-material/Star";
 import { useLocation, useNavigate } from "react-router-dom";
 import iconBack from "../../assets/img/iconBack.svg";
+import Rating from '@mui/material/Rating';
 
-const typeProduct = [
-  {
-    name: "Frutería",
-    id: 9,
-  },
-  {
-    name: "Pescadería",
-    id: 8,
-  },
-  {
-    name: "Meloinvento",
-    id: 7,
-  },
-];
-
-const store = [
-  {
-    name: "La tienda de siempre",
-    location: "Avda. Mediterráneo",
-    id: 1,
-    img: Prueba,
-  },
-  {
-    name: "Frutería Paco",
-    location: "Avda. Recoletos",
-    id: 2,
-    img: Prueba,
-  },
-  {
-    name: "El mercado de Antonio",
-    location: "Calle Delicias",
-    id: 3,
-    img: Prueba,
-  },
-  {
-    name: "La tienda de siempre",
-    location: "Avda. Mediterráneo",
-    id: 77,
-    img: Prueba,
-  },
-  {
-    name: "Frutería Paco",
-    location: "Avda. Recoletos",
-    id: 66,
-    img: Prueba,
-  },
-  {
-    name: "El mercado de Antonio",
-    location: "Calle Delicias",
-    id: 73,
-    img: Prueba,
-  },
-];
-
-function Shops() {
+function Shops({items}) {
+  
   const navigate = useNavigate();
-  const store_id = store.id;
+  const store_id = store.uuid_store;
   const location = useLocation().state;
 
   // When the user clicks on the button, scroll to the top of the document
@@ -68,59 +16,37 @@ function Shops() {
     document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
   }
 
+
+
   return (
     <div className="container-business container">
       <img onClick={() => navigate("/")} src={iconBack} alt="back" />
       <div className="shops">
-        <h1>{location.type}</h1>
+        <h1>Negocios</h1>
         <div className="shops--container">
           {store.map((shop) => (
             <div
               className="shop"
-              key={shop.id}
-              onClick={() =>
-                navigate(`/business/type/${store_id}`, {
-                  state: { id: store_id },
-                })
-              }
+              key={shop.uuid_store}
+              onClick={() =>navigate(`/business/type/${shop.uuid_store}`, { state: shop})}
             >
+              
               <img className="shop--image" alt="images" src={shop.img} />
 
               <div className="shop--details">
-                <p>{shop.name}</p>
+                <p>{shop.store_name}</p>
                 <div className="shop--valoration">
-                  {/* Star 1 */}
-                  <button>
-                    <StarIcon />
-                  </button>
-
-                  {/* Star 2 */}
-                  <button>
-                    <StarIcon />
-                  </button>
-
-                  {/* Star 3 */}
-                  <button>
-                    <StarIcon />
-                  </button>
-
-                  {/* Star 4 */}
-                  <button>
-                    <StarIcon />
-                  </button>
-
-                  {/* Star 5 */}
-                  <button>
-                    <StarIcon />
-                  </button>
+                <Rating name="half-rating-read" defaultValue={shop.rating} precision={0.5} readOnly/> 
+                
                 </div>
+               
               </div>
             </div>
           ))}
         </div>
 
         {/* Go to top button */}
-        <button id="myBtn" className="myBtn" onClick={topFunction}>
+        <button className="myBtn" onClick={topFunction}>
           <div className="text">
             <span>Ir</span>
             <span>al</span>

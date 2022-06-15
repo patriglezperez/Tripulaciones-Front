@@ -9,7 +9,6 @@ export const ShopProvider = ({ children }) => {
   //Check if we have a cart stored in localStorage
   useEffect(() => {
     const storedCart = localStorage.getItem("cart");
-
     if (storedCart) {
       setCart(JSON.parse(storedCart));
     } else {

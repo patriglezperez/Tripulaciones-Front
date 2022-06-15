@@ -1,12 +1,6 @@
 import Owner from "../../../assets/img/Woman.jpg";
 
-function OwnerProfile() {
-  let store = {
-    image_owner: Owner,
-    owner_name: "Ana María",
-    description_store:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. ",
-  };
+function OwnerProfile({store}) {
 
   return (
     <div className="ownerProfile">
@@ -19,7 +13,10 @@ function OwnerProfile() {
             <br />
             <hr className="wave" />
             <br />
-            <p>{store.description_store}</p>
+            <p>Conoce mas sobre {store.store_name}
+            </p>
+            <p>El negocio es regentado por {store.owner_name}</p>
+
           </div>
         </div>
       </div>

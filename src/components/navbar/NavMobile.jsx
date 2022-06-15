@@ -30,7 +30,7 @@ const NavMobile = ({ navOpen, setNavOpen }) => {
         unmountOnExit
       >
         <div ref={nodeRef} className="nav-mobile">
-          <Nav />
+          <Nav setNavOpen={setNavOpen} />
         </div>
       </CSSTransition>
     </>

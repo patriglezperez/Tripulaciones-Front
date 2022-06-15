@@ -20,13 +20,15 @@ const NavBar = () => {
   useEffect(() => {
     window.addEventListener("resize", handleResize);
   }, []);
-
-  return (
+   return (
     <>
       <div className="nav-bar">
         <div className="container nav-bar-container">
           <div className="logo-container ">
-            <img onClick={() => navigate("/")} src={logo} />
+            <img onClick={() => {
+              
+              navigate("/")
+              }} src={logo} />
             <h1>tu barrio</h1>
           </div>
 

@@ -16,7 +16,7 @@ export default function Map({
   const map = useRef(null);
   const [lng, setLng] = useState(-3.74);
   const [lat, setLat] = useState(40.38);
-  const [zoom, setZoom] = useState(13);
+  const [zoom, setZoom] = useState(18);
   const [mapType, setMapType] = useState(type);
   const [userPosition, setUserPosition] = useState(null);
 
@@ -50,6 +50,7 @@ export default function Map({
 
   // initialize map only once
   useEffect(() => {
+   
     if (map.current) return;
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
@@ -57,7 +58,6 @@ export default function Map({
       center: [lng, lat],
       zoom: zoom,
     });
-
     //Adding geolocalitation controller.
     map.current.addControl(
       new mapboxgl.GeolocateControl({
@@ -75,13 +75,16 @@ export default function Map({
       const moveMap = (i) => {
         map.current.flyTo({
           center: [features[i].coordinates[0], features[i].coordinates[1]],
-          zoom: 15,
+          zoom: 10,
         });
       };
       changePlace.current = moveMap;
     }
+   
+    console.log(mapType)
     //In case of having to display points on the map
     if (mapType === "features") {
+      console.log("features", features.length);
       if (features?.length > 0) {
         const bounds = [];
         let indexMarker = 1;
@@ -102,30 +105,33 @@ export default function Map({
           bounds.push(feature.coordinates);
         });
 
-        var boundsF = bounds.reduce(function (boundsIn, coord) {
-          return boundsIn.extend(coord);
-        }, new mapboxgl.LngLatBounds(bounds[0], bounds[0]));
-        map.current.fitBounds(boundsF, {
-          padding: 20,
-        });
+       
+       
+          var boundsF = bounds.reduce(function (boundsIn, coord) {
+            return boundsIn.extend(coord);
+          }, new mapboxgl.LngLatBounds(bounds[0], bounds[0]));
+          map.current.fitBounds(boundsF, {
+            padding: 20,
+          });
+        
+        
       } else {
+        console.log("hello")
         const ref = React.createRef();
         // Create a new DOM node and save it to the React ref
         ref.current = document.createElement("div");
         const root = createRoot(ref.current);
         root.render(<Marker onClick={markerClicked}></Marker>);
-        new mapboxgl.Marker(ref.current);
-        console
-          .log(ref.current, "current")
+        new mapboxgl.Marker(ref.current)
           .setLngLat(features[0].coordinates)
           .addTo(map.current);
-        console.log(features, "features2");
+          
         map.current.fitBounds([features[0].coordinates], {
           padding: 20,
         });
       }
     }
-  });
+  },[]);
 
   //Update map state
   useEffect(() => {
@@ -143,9 +149,7 @@ export default function Map({
 
   return (
     <div ref={mapContainer} className="map-container">
-      {userPosition !== null ? (
-        <SearchBar dragEnd={dragEnd} map={map} setMarker={setMarker} />
-      ) : null}
+   
     </div>
   );
 }

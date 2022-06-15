@@ -1,9 +1,11 @@
 import UserImage from "../../assets/img/userImage.jpg";
 import EditIcon from "@mui/icons-material/Edit";
 import CheckIcon from "@mui/icons-material/Check";
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import OrderDetails from "./OrderDetails/OrderDetails";
 import ResumenUser from "../landpage/resumenUser";
+import { useAuth } from "../../context/authContext";
+import { useNavigate } from "react-router-dom";
 
 const client = {
   uuid_client: 0,
@@ -36,7 +38,15 @@ function UserProfile() {
   const [name, setName] = useState(client.client_name);
   const [lastName, setLastName] = useState(client.client_last_name);
   const [isEditable, setIsEditable] = useState(false);
-
+  const navigate = useNavigate();
+  const {user, signout} = useAuth();
+  //If the user is logged in, the user profile is shown else redirect to login
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }
+  , [user]);
   //   Switch to editable mode or not
   function handleChange() {
     setIsEditable(!isEditable);
@@ -53,13 +63,13 @@ function UserProfile() {
     const newLastName = event.target.value;
     setLastName(newLastName);
   }
-
-  return (
-    <div className="UserProfile--container">
+  console.log(user)
+  if(user)return (
+    <div className="UserProfile--container container">
       <div className="userProfile--data">
         <div className="userProfile--top">
-          <img src={UserImage} alt="user" className="userProfile--img" />
-          <p className="userProfile--email">{client.client_email}</p>
+          <img src={user.photoURL} alt="user" className="userProfile--img" />
+          <p className="userProfile--email">{user.email}</p>
         </div>
 
         {/* User info */}
@@ -75,7 +85,7 @@ function UserProfile() {
               />
             </div>
 
-            <div className="userProfile--editable">
+            {/* <div className="userProfile--editable">
               <p className="userProfile--titles">Nombre:</p>
               <input
                 type={"text"}
@@ -96,20 +106,12 @@ function UserProfile() {
             <div className="userProfile--editable">
               <p className="userProfile--titles">Fecha de alta:</p>
               <p>{client.discharge_date}</p>
-            </div>
+            </div> */}
           </div>
         ) : (
           <div className="userProfile--user--info">
-            <div className="userProfile--btn">
-              <h3>INFORMACIÓN PERSONAL</h3>
-              <EditIcon
-                fontSize="small"
-                onClick={handleChange}
-                className="userProfile--icon"
-                color="primary"
-              />
-            </div>
-            <div className="userProfile--editable">
+           
+            {/* <div className="userProfile--editable">
               <p className="userProfile--titles">Nombre:</p>
               <p className="userProfile--name">{name}</p>
             </div>
@@ -121,12 +123,19 @@ function UserProfile() {
             <div className="userProfile--editable">
               <p className="userProfile--titles">Fecha de alta:</p>
               <p>{client.discharge_date}</p>
-            </div>
+            </div> */}
           </div>
         )}
 
         {/* Green Points */}
         <ResumenUser />
+
+        <button
+                
+                onClick={handleChange}
+                className="primary-button edit-button"
+              
+              >Editar datos</button>
 
         {/* Orders */}
         <div className="userProfile--user--info">
@@ -146,6 +155,9 @@ function UserProfile() {
           </div>
         </div>
       </div>
+      <button className="secondary-button logout-button" onClick={() => signout()}>
+          cerrar sesion
+        </button>
     </div>
   );
 }

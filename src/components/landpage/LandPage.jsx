@@ -1,8 +1,7 @@
-import NavBar from "../NavBar/NavBar";
 import { useAuth } from "../../context/authContext";
 import ResumenUser from "./resumenUser";
 import ResumenCard from "./resumenUser/ResumenCard";
-import iconBread from "../../assets/img/iconBread.svg";
+import iconStore from "../../assets/img/iconStore.svg";
 import iconFish from "../../assets/img/iconFish.svg";
 import iconMeat from "../../assets/img/iconMeat.svg";
 import iconFruit from "../../assets/img/iconFruit.svg";
@@ -38,37 +37,25 @@ const LandPage = () => {
   return (
     <>
       <div className="landpage container">
-        <ResumenUser />
+        {user !== null ? (<ResumenCard />) : null }
+        
         <div className="category">
           <h2>categorias</h2>
           <div className="category-container">
-            <button className="button-category">
+            <button className="button-category"
+            onClick={() => {
+              type = typeProduct[0].name;
+              id = typeProduct[0].id;
+              navigate(`/business/${type}`, {
+                state: { type: type, id: id },
+              });
+            }}>
               <img
                 src={iconFish}
                 alt="category"
-                onClick={() => {
-                  type = typeProduct[0].name;
-                  id = typeProduct[0].id;
-                  navigate(`/business/${type}`, {
-                    state: { type: type, id: id },
-                  });
-                }}
+                
               />
-              pescaderia
-            </button>
-            <button className="button-category">
-              <img
-                src={iconBread}
-                alt="category"
-                onClick={() => {
-                  type = typeProduct[1].name;
-                  id = typeProduct[1].id;
-                  navigate(`/business/${type}`, {
-                    state: { type: type, id: id },
-                  });
-                }}
-              />
-              panaderia
+              Pescaderia
             </button>
             <button className="button-category">
               <img
@@ -82,7 +69,7 @@ const LandPage = () => {
                   });
                 }}
               />
-              panaderia
+              Panaderia
             </button>
             <button className="button-category">
               <img
@@ -96,14 +83,26 @@ const LandPage = () => {
                   });
                 }}
               ></img>
-              otros
+              Fruteria
+            </button>
+            <button className="button-category">
+              <img
+                src={iconStore}
+                alt="category"
+                onClick={() => {
+                  type = typeProduct[1].name;
+                  id = typeProduct[1].id;
+                  navigate(`/business/all`, {
+                    state: { type: type, id: id },
+                  });
+                }}
+              />
+              Todas la tiendas
             </button>
           </div>
         </div>
         <FeaturedStores />
-        <button className="primary-button" onClick={() => signout()}>
-          cerrar sesion
-        </button>
+        
       </div>
     </>
   );

@@ -4,19 +4,27 @@ import BusinessMap from "./BusinessMap/BusinessMap";
 import React, { useState } from "react";
 import ContactShop from "./ContactShop/ContactShop";
 import ShopPresentation from "../../components/LandingShop/ShopPresentation/ShopPresentation";
+import { useLocation, useNavigate , useParams} from "react-router-dom";
+import {store as storeA} from "../../App"
 
-function LandingShop() {
-  let store = {
-    store_address: "C. Dr. Esquerdo, 110",
-    store_name: "Frutas y verduras",
-    latitude_coordinates: 41.40338,
-    longitude_coordinates: 2.17403,
-  };
 
+function LandingShop({}) {
+  // let store = {
+  //   store_address: "C. Dr. Esquerdo, 110",
+  //   store_name: "Frutas y verduras",
+  //   latitude_coordinates: 41.40338,
+  //   longitude_coordinates: 2.17403,
+  // };
+  let storeId = useParams().id;
+  let store = storeA.filter(e=>e.uuid_store === storeId)[0];
+  console.log(store, "STORE")
+  console.log("params",useParams())
+  
+ 
   const [mapModal, setMapModal] = useState(false);
   const lng = store.latitude_coordinates;
   const lat = store.longitude_coordinates;
-
+  console.log(lng, "lng")
   const coordinates = [lat, lng];
 
   return (
@@ -41,13 +49,13 @@ function LandingShop() {
       </div>
 
       {/* About owner*/}
-      <OwnerProfile />
+      <OwnerProfile store={store} />
 
       {/* Business Description*/}
-      <ShopPresentation />
+      <ShopPresentation store={store} />
 
       {/* Contact*/}
-      <ContactShop />
+      <ContactShop store={store} />
 
       {/* Map */}
       <div className="landingShop--address--elements">

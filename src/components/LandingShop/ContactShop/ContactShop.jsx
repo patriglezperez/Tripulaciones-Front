@@ -2,13 +2,7 @@ import MailRoundedIcon from "@mui/icons-material/MailRounded";
 import LocalPhoneRoundedIcon from "@mui/icons-material/LocalPhoneRounded";
 import HomeRoundedIcon from "@mui/icons-material/HomeRounded";
 
-function ContactShop() {
-  let store = {
-    store_phone_number: "666666666",
-    store_email: "hola@gmail.com",
-    store_address: "C. Dr. Esquerdo, 110",
-  };
-
+function ContactShop({store}) {
   return (
     <div className="contactShop">
       <div className="contactShop--container">
