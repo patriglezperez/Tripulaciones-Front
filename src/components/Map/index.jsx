@@ -15,77 +15,63 @@ export default function Map({
   const mapContainer = useRef(null);
   const map = useRef(null);
   const [lng, setLng] = useState(-3.74);
-  const [lat, setLat] = useState(40.38);
-  const [zoom, setZoom] = useState(18);
+  const [lat, setLat] = useState(40.37);
+  const [zoom, setZoom] = useState(15);
   const [mapType, setMapType] = useState(type);
-  const [userPosition, setUserPosition] = useState(null);
+  // const [userPosition, setUserPosition] = useState(null);
 
-  const dragEnd = async (e) => {
-    const data = await getAddress(e.target._lngLat);
-  };
-  //Update map type
+  // const dragEnd = async (e) => {
+  //   const data = await getAddress(e.target._lngLat);
+  // };
+  // //Update map type
+  // useEffect(() => {
+  //   setMapType(type);
+  // }, [type]);
+
+  // //Check navigator permissions
+  // useEffect(() => {
+  //   if (map.current) return;
+  //   if ("geolocation" in navigator) {
+  //     getUserPosition();
+  //   } else {
+  //     setUserPosition({ lat, lng });
+  //   }
+  // }, [map]);
+
+  // //Get user position
+  // const getUserPosition = async () => {
+  //   await navigator.geolocation.getCurrentPosition((position) => {
+  //     setUserPosition({
+  //       lng: position.coords.longitude,
+  //       lat: position.coords.latitude,
+  //     });
+  //   });
+  // };
+
   useEffect(() => {
-    setMapType(type);
-  }, [type]);
-
-  //Check navigator permissions
-  useEffect(() => {
-    if (map.current) return;
-    if ("geolocation" in navigator) {
-      getUserPosition();
-    } else {
-      setUserPosition({ lat, lng });
-    }
-  }, [map]);
-
-  //Get user position
-  const getUserPosition = async () => {
-    await navigator.geolocation.getCurrentPosition((position) => {
-      setUserPosition({
-        lng: position.coords.longitude,
-        lat: position.coords.latitude,
-      });
-    });
-  };
-
-  // initialize map only once
-  useEffect(() => {
-   
-    if (map.current) return;
+    if (map.current) return; // initialize map only once
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
       style: "mapbox://styles/mapbox/streets-v11",
       center: [lng, lat],
       zoom: zoom,
     });
-    //Adding geolocalitation controller.
-    map.current.addControl(
-      new mapboxgl.GeolocateControl({
-        positionOptions: {
-          enableHighAccuracy: true,
-        },
-        // When active the map will receive updates to the device's location as it changes.
-        trackUserLocation: true,
-        // Draw an arrow next to the location dot to indicate which direction the device is heading.
-        showUserHeading: true,
-      })
-    );
 
     if (changePlace) {
       const moveMap = (i) => {
         map.current.flyTo({
           center: [features[i].coordinates[0], features[i].coordinates[1]],
-          zoom: 10,
+          zoom: 15,
         });
       };
       changePlace.current = moveMap;
     }
    
-    console.log(mapType)
-    //In case of having to display points on the map
-    if (mapType === "features") {
-      console.log("features", features.length);
-      if (features?.length > 0) {
+
+    if (features?.length > 1) {
+      
+      if (features?.length > 1) {
+       
         const bounds = [];
         let indexMarker = 1;
         features.forEach((feature) => {
@@ -101,39 +87,34 @@ export default function Map({
           new mapboxgl.Marker(ref.current)
             .setLngLat(feature.coordinates)
             .addTo(map.current);
-
+          
           bounds.push(feature.coordinates);
         });
 
-       
-       
-          var boundsF = bounds.reduce(function (boundsIn, coord) {
-            return boundsIn.extend(coord);
-          }, new mapboxgl.LngLatBounds(bounds[0], bounds[0]));
-          map.current.fitBounds(boundsF, {
-            padding: 20,
-          });
-        
-        
-      } else {
-        console.log("hello")
-        const ref = React.createRef();
-        // Create a new DOM node and save it to the React ref
-        ref.current = document.createElement("div");
-        const root = createRoot(ref.current);
-        root.render(<Marker onClick={markerClicked}></Marker>);
-        new mapboxgl.Marker(ref.current)
-          .setLngLat(features[0].coordinates)
-          .addTo(map.current);
-          
-        map.current.fitBounds([features[0].coordinates], {
+        var boundsF = bounds.reduce(function (boundsIn, coord) {
+          return boundsIn.extend(coord);
+        }, new mapboxgl.LngLatBounds(bounds[0], bounds[0]));
+        map.current.fitBounds(boundsF, {
           padding: 20,
         });
       }
+    } else {
+      console.log("Mark")
+      const ref = React.createRef();
+      // Create a new DOM node and save it to the React ref
+      ref.current = document.createElement("div");
+      const root = createRoot(ref.current);
+      root.render(<Marker onClick={markerClicked}></Marker>);
+      var sw = new mapboxgl.LngLat(-3.73, 40.37);
+      var ne = new mapboxgl.LngLat(-3.75, 40.36);
+      var llb = new mapboxgl.LngLatBounds(sw, ne);  
+      new mapboxgl.Marker(ref.current)
+            .setLngLat(features[0].coordinates)
+            .addTo(map.current);
+       
     }
-  },[]);
-
-  //Update map state
+  });
+  //Update state
   useEffect(() => {
     if (!map.current) return; // wait for map to initialize
     map.current.on("move", () => {
@@ -144,12 +125,10 @@ export default function Map({
   });
 
   const markerClicked = (e) => {
-    console.log(e.target);
+    console.log(e);
   };
-
   return (
     <div ref={mapContainer} className="map-container">
-   
     </div>
   );
 }

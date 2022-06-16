@@ -7,9 +7,9 @@ import Rating from '@mui/material/Rating';
 function Shops({items}) {
   
   const navigate = useNavigate();
-  const store_id = store.uuid_store;
-  const location = useLocation().state;
 
+  const location = useLocation().state;
+  const store = items;
   // When the user clicks on the button, scroll to the top of the document
   function topFunction() {
     document.body.scrollTop = 0; // For Safari
