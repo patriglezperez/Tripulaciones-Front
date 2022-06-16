@@ -36,7 +36,7 @@ function Shops({items}) {
               <div className="shop--details">
                 <p>{shop.store_name}</p>
                 <div className="shop--valoration">
-                <Rating name="half-rating-read" defaultValue={shop.rating} precision={0.5} readOnly/> 
+                <Rating name="half-rating-read" defaultValue={shop.assessment} precision={0.5} readOnly/> 
                 
                 </div>
                
