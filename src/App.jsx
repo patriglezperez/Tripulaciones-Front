@@ -8,7 +8,7 @@ import ConfirmedOrder from "./components/ConfirmedOrder";
 import RegisterBusinessForm from "./components/forms/RegisterBusinessForm";
 import LandingShop from "./components/LandingShop/LandingShop";
 import LandPage from "./components/landpage/LandPage";
-import NavBar from "./components/navbar/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import Login from "./components/Login";
 import Shops from "./components/Shops/shops";
 import Ecommerce from "./components/Ecommerce";
@@ -24,10 +24,16 @@ function App() {
   const [store, setStore] = useState([]);
 
   const fetchData = async () => {
-    const result = await axios.get('http://localhost:3003/store/all');
-    console.log(result,"Result")
-    setStore(result.data.allStore)
-  }
+    const result = await axios.get("http://localhost:3003/store/all");
+    const data = result.data.allStore;
+    data.unshift(
+      result.data.allStore.filter(
+        (e) => e.uuid_store === "0b7f8622-f0e5-4845-b2c5-c0e3f974a666"
+      )[0]
+    );
+    console.log(data);
+    setStore(data);
+  };
   useEffect(() => {
     fetchData();
   }, []);
@@ -54,7 +60,7 @@ function App() {
             {/*Business*/}
             <Route path="/business-managment" element={<BusinessManagment />} />
             <Route path="/business/:type" element={<Shops />} />
-            <Route path="/business/all" element={<Shops items={store}/>} />
+            <Route path="/business/all" element={<Shops items={store} />} />
 
             <Route path="/business/type/:id" element={<LandingShop />} />
             <Route
